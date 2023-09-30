@@ -21,7 +21,7 @@ import 'bootstrap';
 
 class App extends React.Component {
     render = (): React.ReactNode => (
-        <div id="app" className="tw-flex tw-flex-col tw-w-screen tw-h-screen">
+        <div id="app" className="tw-flex tw-flex-col tw-h-screen">
             <Header />
             <Router>
                 <Routes>

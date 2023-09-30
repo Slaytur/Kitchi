@@ -1,6 +1,7 @@
 @import '../palette.scss';
 
 .pg-home {
+
     .splash {
         background: $blue;
     }
@@ -23,4 +24,12 @@
 
         transform: scale(1.25) !important;
     }
+
+    
+    @media only screen and (min-width: 60rem) {
+        .virtual-sous-chef-intro > div {
+            display: flex;
+        }
+    }
 }
+
