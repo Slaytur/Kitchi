@@ -1,65 +1,84 @@
-import keras
-import numpy as np
+from http.server import SimpleHTTPRequestHandler, HTTPServer
 import tensorflow as tf
-from keras.layers import Conv2D, MaxPooling2D, Lambda, Flatten, Dense, Dropout
-from keras import layers
-from keras.models import Sequential
-
-batch_size =8
-epochs = 1
-classes = 43
-input_shape=(256,256,3)
-
-model = Sequential()
-
-model.add(Conv2D(64, (5, 5), padding = 'same', input_shape=input_shape, activation="relu"))
-model.add(Conv2D(64, (3, 3), padding = 'same', activation="relu"))
-model.add(MaxPooling2D(pool_size=(3, 3), strides=(2, 2)))
-
-for filt, num in [(128,2), (256,2), (512,3), (512,3)]:
-    for _ in range(num):
-        model.add(Conv2D(filt, (3, 3), padding = 'same', activation="relu"))
-    model.add(MaxPooling2D(pool_size=(3, 3), strides=(2, 2)))
-
-model.add(Flatten())
-
-model.add(Dense(4096, activation="relu"))
-model.add(Dropout(0.4))
-model.add(Dense(4096, activation="relu"))
-model.add(Dropout(0.4))
-# model.add(Dense(1000, activation="relu"))
-# model.add(Dense(512, activation="relu"))
-
-# model.add(Dropout(0.4))
-# model.add(Dense(256, activation="relu"))
-# model.add(Dense(128, activation="relu"))
-# model.add(Dropout(0.2))
-model.add(Dense(classes, activation="softmax"))
-# model.add(Dropout(0.2))
-# model.add(LayerNormalization())
+from PIL import Image
+import io
+import numpy as np
 
 
-# earlyStopping = tf.keras.callbacks.EarlyStopping(patience = 1)
+host = "localhost"
+port = 8080
+
+class MyHandler(SimpleHTTPRequestHandler):
+    def __init__(self, *args, **kwargs):
+        self.model = tf.keras.saving.load_model("Object detection\kitchiAI")
+        self.classes = ["apple","avocado","bacon","banana","basil","beans","bread_crumbs","bruh.js","butter","cabbage","carrots","celery","cheddar_cheese","chicken_breasts","chicken_broth","chocolate_chips","cream_cheese","cucumber","eggs","flour","ginger","green_onions","ground_beef","honey","lemon","lettuces","lime","milk","monzzerella","mushroom","oil","onion","orange","orange_juice","parsley","peanut_butter","potato","rasins","sour_cream","sugar","tomato","tomato_sauce","vinegar","zucchini"]
+        SimpleHTTPRequestHandler.__init__(self, *args, **kwargs)
+        
+    def process_images(self, binary_image_data):
+        image = Image.open(io.BytesIO(binary_image_data))
+        image_data = np.array(image)
+        
+        print(image_data.shape)
+        
+        desired_shape = (256, 256)
+        image_data = tf.image.resize(image_data, size=desired_shape)
+        image_data = np.expand_dims(image_data, axis=0)
+        # print(image_data)
+        print(image_data.shape)
+        
+        results = self.model.predict(image_data)
+
+        # Apply softmax activation
+        classification_result = tf.nn.softmax(results)
+
+        # Get the class with the highest probability
+        predicted_class = tf.argmax(classification_result, axis=-1).numpy()
+
+        return [self.classes[int(predicted_class)]]
+        
+    
+    
+    
+    # def do_GET(self):
+    #     if self.path == "/letters":
+    #         image_processing_result = self.process_images()
+
+    #         self.send_response(200)
+    #         self.send_header("Content-type", "text/plain")
+    #         self.end_headers()
+    #         self.wfile.write(str(image_processing_result).encode("utf-8"))
+    #     else:
+    #         self.send_response(404)
+    #         self.end_headers()
+    #         self.wfile.write(b"404 Not Found")
+
+    def do_POST(self):
+        if self.path == "/letters":
+            content_length = int(self.headers['Content-Length'])
+            image_data = self.rfile.read(content_length)
+            returned_data = self.process_images(image_data)
+            
+            self.send_response(200)
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+            self.wfile.write(",".join(returned_data).encode("utf-8"))
+        else:
+            self.send_response(404)
+            self.end_headers()
+            self.wfile.write(b"404 Not Found")
+
+            
 
 
-train_ds = keras.utils.image_dataset_from_directory(
-    directory='./Object detection/dataset',
-    labels='inferred',
-    label_mode='int',
-    batch_size=16,
-    image_size=input_shape[0:2]
-    )
+if __name__ == "__main__":
+    server_address = (host, port)
+    httpd = HTTPServer(server_address, MyHandler)
+    print(f"Server started http://{host}:{port}")
 
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        pass
 
-optimizer = keras.optimizers.SGD(learning_rate=0.001)
-
-model.compile(loss='sparse_categorical_crossentropy', optimizer = optimizer, metrics = ['accuracy'])
-
-history = model.fit(
-    train_ds,
-    batch_size=batch_size,
-    epochs=epochs,
-    # callbacks = [earlyStopping]
-)
-
-tf.keras.saving.save_model(model, "/", overwrite=True)
+    httpd.server_close()
+    print("Server stopped.")
