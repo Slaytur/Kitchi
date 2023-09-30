@@ -4,7 +4,7 @@ header {
     z-index: 999;
 
     nav {
-        background: $blue;
+        background: $lightgreen;
         transition: 0.3s;
 
         .navbar-brand img {
@@ -16,7 +16,7 @@ header {
         }
 
         .container-fluid {
-            background: $blue;
+            background: $lightgreen;
         }
 
         @media only screen and (min-width: 75rem) {

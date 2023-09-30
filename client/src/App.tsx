@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 
 import Home from './pages/Home';
 import Error404 from './pages/404';
-import Register from './pages/Register';
+import Register from './pages/OldRegister';
 
 import Dashboard from './pages/Dashboard/Dashboard';
 

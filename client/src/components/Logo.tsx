@@ -1,10 +1,10 @@
 import React from 'react';
 
-import LogoImg from '../assets/img/logos/slaytur.png';
+import LogoImg from '../assets/img/logos/kitchi.png';
 
 class Logo extends React.Component {
     render = (): React.ReactNode => (
-        <img className="tw-w-[75px] tw-h-full" src={LogoImg} />
+        <img className="tw-h-full" src={LogoImg} />
     );
 }
 

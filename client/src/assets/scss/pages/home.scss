@@ -1,32 +1,53 @@
 @import '../palette.scss';
 
 .pg-home {
-
     .splash {
-        background: $blue;
+        background: $lightgreen;
+
+        img {
+            display: none;
+        }
+
+        &> div {
+            padding-bottom: 2rem;
+        }
     }
 
     .btn-sign-in {
+        background-color: $green;
+        border-color: $green;
+
         padding: 16px 24px !important;
+        transition: 0.3s !important;
 
         span {
             margin-right: 5px !important;
         }
-
-        transition: 0.3s !important;
     }
 
-    .btn-sign-in:hover {
-        color: #ffffff !important;
+    // .btn-sign-in:hover {
+    //     color: #ffffff !important;
 
-        background-color: #000000 !important;
-        border-color: #000000 !important;
-
-        transform: scale(1.25) !important;
-    }
+    //     background-color: #000000 !important;
+    //     border-color: #000000 !important;
+    // }
 
     
     @media only screen and (min-width: 60rem) {
+        .splash {
+            h1 {
+                margin-top: 4.75rem;
+            }
+            img {
+                display: block;
+            }
+
+            &> div {
+                display: flex;
+                padding-top: 2rem;
+            }
+        }
+
         .virtual-sous-chef-intro > div {
             display: flex;
         }
