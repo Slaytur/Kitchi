@@ -41,6 +41,7 @@ class Home extends React.Component<Record<string, never>, { isLoggedIn: boolean 
                                 <label htmlFor="register-terms-agree" className="form-check-label">By creating an account, I agree to KitchenWhizard&apos;s <a href="/tos">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>.</label>
                             </div>
                             <button type="submit" className="btn btn-primary">Register</button>
+                            <a href="/register" className={`nav-link ${window.location.pathname === `/register` ? `active disabled` : ``}`}>register page</a>
                         </form>
                     </div>
                 </div>
