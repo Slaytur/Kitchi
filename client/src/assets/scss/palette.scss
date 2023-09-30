@@ -2,8 +2,15 @@
  * Color palette.
  */
 
-// Background
-$bg:            #1c1724;
+// Colors
+$white:         #fdf8e9;
+$sand:          #eacbaa;
+$buff:          #c8a28d;
+$black:         #1e1e1e;
+$orange:        #da6525;
+$green:         #68902b;
+$lightgreen:    #93bc3d;
+$blue:          #87c6fa;
 
 // Socials
 $facebook:      #3b579d;
@@ -14,3 +21,7 @@ $discord:       #5865f2;
 $youtube:       #ff0000;
 $github:        #181717;
 $steam:         #2a475e;
+
+// System Variables
+$bg: $white;
+$text: $black;
