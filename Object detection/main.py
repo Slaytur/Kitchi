@@ -33,8 +33,11 @@ class MyHandler(SimpleHTTPRequestHandler):
 
         # Get the class with the highest probability
         predicted_class = tf.argmax(classification_result, axis=-1).numpy()
+        
+        if results[0][int(predicted_class)]>0.005:
+            return [self.classes[int(predicted_class)]]
 
-        return [self.classes[int(predicted_class)]]
+        return []
         
     
     
@@ -53,7 +56,7 @@ class MyHandler(SimpleHTTPRequestHandler):
     #         self.wfile.write(b"404 Not Found")
 
     def do_POST(self):
-        if self.path == "/letters":
+        if self.path == "/objectdetect":
             content_length = int(self.headers['Content-Length'])
             image_data = self.rfile.read(content_length)
             returned_data = self.process_images(image_data)

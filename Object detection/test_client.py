@@ -1,7 +1,7 @@
 import requests
 
 # Define the server's address.
-server_address = "http://localhost:8080/letters"  # Replace with your server's address.
+server_address = "http://localhost:8080/objectdetect"  # Replace with your server's address.
 
 # Define the path to the image file you want to send.
 image_file = "Object detection\image.jpg"  # Replace with the actual image file path.
