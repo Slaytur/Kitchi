@@ -11,7 +11,8 @@ import Footer from './components/Footer';
 
 import Home from './pages/Home';
 import Error404 from './pages/404';
-import Register from './pages/OldRegister';
+import Register from './pages/Register';
+import Forums from './pages/Forums';
 
 import Dashboard from './pages/Dashboard/Dashboard';
 
@@ -29,6 +30,7 @@ class App extends React.Component {
                     <Route path="/" element={<Home />} />
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/register" element={<Register />} />
+                    <Route path="/forums" element={<Forums />} />
                     <Route path="/*" element={<Error404 />} />
                 </Routes>
             </Router>

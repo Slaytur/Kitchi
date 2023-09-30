@@ -1,13 +1,13 @@
 @import '../palette.scss';
 
 .pg-home{
-    .personalinformation{
+    .personal-information{
         position: absolute;
         top: 10%;
         margin: auto;
         padding-left: 5%;
     }
-    .registerforms{
+    .register-forms{
         width:300px;
     }
     .rcard{
@@ -27,7 +27,7 @@
     .checkbox{
         margin:100px;
     }
-    .cardinput{
+    .card-input{
         text-align: left;
         background-color: #5d95f037;
         padding: 10px;
