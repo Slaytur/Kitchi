@@ -1,0 +1,36 @@
+@import '../palette.scss';
+
+.pg-home{
+    .personalinformation{
+        position: absolute;
+        top: 10%;
+        margin: auto;
+        padding-left: 5%;
+    }
+    .registerforms{
+        width:300px;
+    }
+    .rcard{
+        width: fit-content;
+        padding:10px;
+        background: whtie;
+        border: 1px;
+        border-radius: 10px;
+    }
+
+    .slider{
+        width:70%;
+    }
+    .submitbutton{
+        padding:10px;
+    }
+    .checkbox{
+        margin:100px;
+    }
+    .cardinput{
+        text-align: left;
+        background-color: #5d95f037;
+        padding: 10px;
+        margin:10px;
+    }
+}

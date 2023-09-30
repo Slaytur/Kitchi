@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 
 import Home from './pages/Home';
 import Error404 from './pages/404';
+import Register from './pages/Register';
 
 import Dashboard from './pages/Dashboard/Dashboard';
 
@@ -27,7 +28,7 @@ class App extends React.Component {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/dashboard" element={<Dashboard />} />
-
+                    <Route path="/register" element={<Register />} />
                     <Route path="/*" element={<Error404 />} />
                 </Routes>
             </Router>
