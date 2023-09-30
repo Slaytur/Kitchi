@@ -2,6 +2,10 @@
 // @import 'https://fonts.googleapis.com/css2?family=Varela+Round&display=swap';
 @import 'https://fonts.googleapis.com/css2?family=Inter&family=Source+Serif+4:opsz@8..60&display=swap';
 
+* {
+    box-sizing: border-box !important;
+}
+
 html {
     min-width: 100%;
     min-height: 100%;
@@ -33,5 +37,11 @@ a:not([href]):not([class]) {
     &, &:hover {
         color: inherit;
         text-decoration: none;
+    }
+}
+
+@media only screen and (min-width: 75rem) {
+    main {
+        margin-top: 60px;
     }
 }

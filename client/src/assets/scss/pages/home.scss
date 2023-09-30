@@ -1,4 +1,10 @@
+@import '../palette.scss';
+
 .pg-home {
+    .splash {
+        background: $blue;
+    }
+
     .btn-sign-in {
         padding: 16px 24px !important;
 
