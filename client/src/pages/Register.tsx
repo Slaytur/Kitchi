@@ -16,18 +16,41 @@ class Register extends React.Component<Record<string, never>, { isLoggedIn: bool
                     <div className="tw-mt-5 tw-w-80%">
                         <div className="rcard tw-bg-white tw-4 tw-border-r-10 tw-border-2 tw-m-5">
                             <h5 className="card-title tw-text-2xl tw-font-bold">What is your skill level?</h5>
-                            <form action={`${API_URL}/auth/register`} className="tw-text-left tw-bg-[#5d96f0] tw-p-4 form-control tw-w-[fit-content] tw-border-none">
+                            <form action={`${API_URL}/auth/register`} className="cardinput tw-text-left tw-bg-[#5d96f0] tw-p-4 form-control tw-w-[fit-content] tw-border-none">
                                 <div className="registerforms">
                                     <label htmlFor="level">Level (beginner to experienced):</label><br></br>
                                     <input className="slider" type="range"name="level" min="0" max="2"></input>
                                 </div>
-                                <input className="tw-bg-white" type="submit" value="Submit"></input>
+                                <input className="submitbutton tw-bg-white" type="submit" value="Submit"></input>
                             </form>
                         </div>
                         <div className="rcard tw-bg-white tw-4 tw-border-r-10 tw-border-2 tw-m-5">
-                            <h5 className="card-title tw-text-2xl tw-font-bold">What is your skill level?</h5>
-                            <form action={`${API_URL}/auth/register`} className="tw-text-left tw-bg-[#5d96f0] tw-p-4 form-control tw-w-[fit-content] tw-border-none">
-                                <label htmlFor="intrests">What food do you like?</label><br></br>
+                            <h5 className="card-title tw-text-2xl tw-font-bold">Dietary Restrictions?</h5>
+                            <form action={`${API_URL}/auth/register`} className="cardinput">
+                                <div className="registerforms">
+                                    <label htmlFor="diet">Vegan</label>
+                                    <input className="diet" type="checkbox"></input><br></br>
+                                    <label htmlFor="diet">Vegetarian</label>
+                                    <input className="diet" type="checkbox"></input><br></br>
+                                    <label htmlFor="diet">Halal</label>
+                                    <input className="diet" type="checkbox"></input><br></br>
+                                    <label htmlFor="diet">Kosher</label>
+                                    <input className="diet" type="checkbox"></input><br></br>
+                                    <label htmlFor="diet">Gluten Free</label>
+                                    <input className="diet" type="checkbox"></input><br></br>
+                                    <label htmlFor="diet">Lactose Intolerant</label>
+                                    <input className="diet" type="checkbox"></input><br></br>
+                                    <label htmlFor="diet">Low Sugar</label>
+                                    <input className="diet" type="checkbox"></input><br></br>
+                                    <label htmlFor="diet">Low Sodium</label>
+                                    <input className="diet" type="checkbox"></input><br></br>
+                                </div>
+                                <input className="submitbutton tw-bg-white" type="submit" value="Submit"></input>
+                            </form>
+                        </div>
+                        <div className="rcard tw-bg-white tw-4 tw-border-r-10 tw-border-2 tw-m-5">
+                            <h5 className="card-title tw-text-2xl tw-font-bold">What food do you like?</h5>
+                            <form action={`${API_URL}/auth/register`} className="cardinput tw-text-left tw-bg-[#5d96f0] tw-p-4 form-control tw-w-[fit-content] tw-border-none">
                                 <div className="registerforms">
                                     <label htmlFor="interests">American</label>
                                     <input className="interests" type="checkbox"></input><br></br>
@@ -35,23 +58,16 @@ class Register extends React.Component<Record<string, never>, { isLoggedIn: bool
                                     <input className="interests" type="checkbox"></input><br></br>
                                     <label htmlFor="interests">Italian</label>
                                     <input className="interests" type="checkbox"></input><br></br>
+                                    <label htmlFor="interests">French</label>
+                                    <input className="interests" type="checkbox"></input><br></br>
+                                    <label htmlFor="interests">Canadian</label>
+                                    <input className="interests" type="checkbox"></input><br></br>
+                                    <label htmlFor="interests">Cajun</label>
+                                    <input className="interests" type="checkbox"></input><br></br>
+                                    <label htmlFor="interests">Spicy</label>
+                                    <input className="interests" type="checkbox"></input><br></br>
                                 </div>
-                                <input className="tw-bg-white" type="submit" value="Submit"></input>
-                            </form>
-                        </div>
-                        <div className="rcard tw-bg-white tw-4 tw-border-r-10 tw-border-2 tw-m-5">
-                            <h5 className="card-title tw-text-2xl tw-font-bold">What is your skill level?</h5>
-                            <form action={`${API_URL}/auth/register`} className="tw-text-left tw-bg-[#5d96f0] tw-p-4 form-control tw-w-[fit-content] tw-border-none">
-                                <label htmlFor="diet">What are you looking for?</label><br></br>
-                                <div className="registerforms">
-                                    <label htmlFor="diet">Vegan</label>
-                                    <input className="diet" type="checkbox"></input><br></br>
-                                    <label htmlFor="diet">Vegetarian</label>
-                                    <input className="diet" type="checkbox"></input><br></br>
-                                    <label htmlFor="diet">Bulking</label>
-                                    <input className="diet" type="checkbox"></input><br></br>
-                                </div>
-                                <input className="tw-bg-white" type="submit" value="Submit"></input>
+                                <input className="submitbutton tw-bg-white" type="submit" value="Submit"></input>
                             </form>
                         </div>
                     </div>
