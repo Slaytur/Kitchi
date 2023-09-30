@@ -6,11 +6,22 @@
 }
 
 .link-darken:hover,
-.link-darken:active,
-.btn-darken:hover,
+.btn-darken:hover
+ {
+    color: inherit !important;
+    filter: brightness(80%) !important;
+}
+
 .btn-darken:active {
-    color: inherit; 
-    filter: brightness(80%);
+    color: #000000 !important;
+    background-color: #ffffff !important;
+    border-color: #ffffff !important;
+    filter: none !important;
+}
+
+.btn-green {
+    background: $green !important;
+    border-color: $green !important;
 }
 
 .btn-facebook {
