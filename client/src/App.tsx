@@ -6,8 +6,8 @@ import {
     Route
 } from 'react-router-dom';
 
-import Header from './components/templates/Header';
-import Footer from './components/templates/Footer';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 import Home from './pages/Home';
 import Error404 from './pages/404';
@@ -21,7 +21,7 @@ import 'bootstrap';
 
 class App extends React.Component {
     render = (): React.ReactNode => (
-        <div id="app" className="tw-flex tw-flex-col tw-w-screen tw-h-screen tw-text-white">
+        <div id="app" className="tw-flex tw-flex-col tw-w-screen tw-h-screen">
             <Header />
             <Router>
                 <Routes>
