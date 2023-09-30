@@ -30,7 +30,7 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                 <div className="container-fluid">
                     <a href="https://slaytur.warzon.io" className="navbar-brand">
                         <img className="tw-w-[30px] tw-mr-2 d-inline-block" src={Logo} />
-                        Slaytur
+                        KitchenWizard
                     </a>
                     <button className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -51,13 +51,13 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                                     <span>{this.state.account.username}</span>
                                 </a>
                                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="profile-dropdown">
-                                    {/* <li>
+                                    <li>
                                         <a href="/profile" className="dropdown-item profile-settings-opt">
                                             <i className="icofont icofont-people tw-mr-1"></i>
                                             Profile
                                         </a>
                                     </li>
-                                    <li><hr className="dropdown-divider" /></li> */}
+                                    <li><hr className="dropdown-divider" /></li>
                                     <li>
                                         <a href="/dashboard" className="dropdown-item profile-settings-opt">
                                             <i className="icofont icofont-dashboard tw-mr-1"></i>
