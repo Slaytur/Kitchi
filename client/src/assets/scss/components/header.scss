@@ -1,6 +1,8 @@
 @import '../palette.scss';
 
 header {
+    z-index: 999;
+
     nav {
         background: $blue;
         transition: 0.3s;
