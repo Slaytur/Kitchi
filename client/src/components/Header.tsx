@@ -35,8 +35,7 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                 <nav ref={this.nav} className="navbar navbar-expand-lg navbar-light">
                     <div className="container-fluid container">
                         <a href="/" className="navbar-brand">
-                            <img src={Logo} alt="KitchenWhizard logo" className="d-inline-block tw-me-2" height="48" />
-                            {/* KitchenWhizard */}
+                            <img src={Logo} alt="Kitchi logo" className="d-inline-block tw-me-2" height="48" />
                         </a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
