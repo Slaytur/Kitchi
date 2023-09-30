@@ -18,11 +18,11 @@ class Home extends React.Component<Record<string, never>, { isLoggedIn: boolean 
                         <div>
                             <h1 className="tw-text-9xl">Kitchi</h1>
                             <p className="desc tw-my-4">For all your cooking needs.</p>
-                            <a href="/auth/login" className="btn btn-lg btn-primary btn-sign-in tw-me-1">
+                            <a href="/auth/login" className="btn btn-lg btn-green btn-sign-in tw-me-1">
                                 <span className="me-1">Sign In</span>
                                 <FontAwesomeIcon icon={faSignInAlt} />
                             </a>
-                            <a href="/auth/signup" className="btn btn-lg btn-primary btn-sign-in tw-ms-1">
+                            <a href="/auth/signup" className="btn btn-lg btn-green btn-sign-in tw-ms-1">
                                 <span className="me-1">Register</span>
                                 <FontAwesomeIcon icon={faSignInAlt} />
                             </a>

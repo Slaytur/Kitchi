@@ -32,7 +32,7 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
     render = (): React.ReactNode => {
         return (
             <header>
-                <nav ref={this.nav} className="navbar navbar-expand-lg navbar-light">
+                <nav ref={this.nav} className={`navbar navbar-expand-lg navbar-light ${window.location.pathname !== `/` ? `nav-scrolled` : ``}`}>
                     <div className="container-fluid container">
                         <a href="/" className="navbar-brand">
                             <img src={Logo} alt="Kitchi logo" className="d-inline-block tw-me-2" height="48" />
@@ -105,6 +105,8 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
     };
 
     componentDidMount = (): void => {
+        if (window.location.pathname !== `/`) return;
+
         /**
          * Update the header to automatically toggle stickiness.
          */
