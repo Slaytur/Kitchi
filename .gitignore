@@ -1,0 +1,13 @@
+# Build
+dist/
+
+# Node
+node_modules/
+
+# Environment variables
+.env
+
+# IDE garbage
+.idea
+.DS_Store
+.vscode

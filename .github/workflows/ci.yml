@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  client:
+    name: Client
+    runs-on: ubuntu-latest
+    concurrency: ci-client-${{ github.ref }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'pnpm'
+          cache-dependency-path: '**/pnpm-lock.yaml'
+
+      - name: Install Packages
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build:client
+
+      - name: Deploy
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          username: '${{ secrets.SFTP_USERNAME }}'
+          server: '${{ secrets.SFTP_SERVER }}'
+          port: '${{ secrets.SFTP_PORT }}'
+          ssh_private_key: ${{ secrets.SFTP_PRIVKEY }} 
+          local_path: './client/dist/*'
+          remote_path: '/var/www/slaytur.warzon.io'

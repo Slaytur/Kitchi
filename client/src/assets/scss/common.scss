@@ -1,0 +1,40 @@
+// @import 'https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Varela+Round&display=swap';
+
+html {
+    min-width: 100%;
+    min-height: 100%;
+
+    background: $bg;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+body, #root, #app {
+    background: transparent;
+}
+
+body {
+    font-family: 'Varela Round', sans-serif;
+}
+
+p {
+    color: #ffffff80;
+}
+
+a {
+  color: #0d6efd;
+
+  &:hover {
+    color: #0a58ca;
+  }
+}
+
+a:not([href]):not([class]) {
+  &,
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}

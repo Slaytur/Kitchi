@@ -1,0 +1,10 @@
+[Unit]
+Description=Custom Node.js server.
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/Slaytur-v2
+ExecStart=/usr/bin/pnpm start:server
+
+[Install]
+WantedBy=multi-user.target

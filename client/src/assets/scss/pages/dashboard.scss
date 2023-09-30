@@ -1,0 +1,49 @@
+.dash-container, .dash-content {
+    box-shadow: 0px 0px 5px #000;
+    border-radius: 8px;
+}
+
+.dash-container {
+    padding: 8px;
+    background: #191919;
+}
+
+.dash-header {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+ 
+    background: linear-gradient(to right, #1e90ff, #b721ff);
+}
+
+.dash-header > h1 {
+    font-size: 1.75rem;
+    padding: 10px 0px;
+}
+
+.dash-content > * {
+    background: #353535;
+    padding: 8px;
+
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.dash-config-container {
+    .dash-config p {
+        color: #a6a6a6;
+    }
+}
+
+.dash-config-btns > * {
+    margin-left: 5px;
+}
+
+.dash-pictures {
+    flex: 1;
+}
+
+@media only screen and (min-width: 75rem) {
+    .dash-content {
+        display: flex;
+    } 
+}

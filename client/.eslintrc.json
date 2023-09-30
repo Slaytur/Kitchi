@@ -1,0 +1,69 @@
+{
+    "env": {
+        "browser": true,
+        "es2022": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "plugin:svelte/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "eslint:recommended",
+        "standard-with-typescript"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "./tsconfig.json",
+        "extraFileExtensions": [".svelte"]
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "react",
+        "react-hooks",
+        "svelte"
+    ],
+    "overrides": [
+        {
+            "files": ["*.svelte"],
+            "parser": "svelte-eslint-parser",
+            "parserOptions": {
+                "parser": "@typescript-eslint/parser"
+            }
+        }
+    ],
+    "rules": {
+        "indent": [1, 4, { "SwitchCase": 1 }],
+        "semi": [1, "always"],
+        "quotes": [1, "backtick", "avoid-escape"],
+        "@typescript-eslint/indent": [1, 4, { "SwitchCase": 1 }],
+        "@typescript-eslint/semi": [1, "always"],
+        "@typescript-eslint/quotes": [1, "backtick", "avoid-escape"],
+        "no-use-before-define": 0,
+        "no-unused-vars": 0,
+        "@typescript-eslint/no-use-before-define": 2,
+        "@typescript-eslint/no-unused-vars": 2,
+        "prefer-arrow-callback": 1,
+        "prefer-template": 1,
+        "curly": 0,
+        "@typescript-eslint/curly": 0,
+        "import/no-webpack-loader-syntax": 0,
+        "@typescript-eslint/no-for-in-array": 0,
+        "@typescript-eslint/no-confusing-void-expression": 0
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        },
+        "svelte": {
+            "compileOptions": {
+                "postcss": {
+                    "configFilePath": "./postcss.config.js"
+                }
+            }
+        }
+    }
+}

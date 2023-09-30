@@ -1,0 +1,62 @@
+@import "../palette.scss";
+
+.btn-darken {
+    color: inherit;
+    transition: filter 0.25s ease;
+}
+
+.link-darken:hover,
+.link-darken:active,
+.btn-darken:hover,
+.btn-darken:active {
+    color: inherit;
+    filter: brightness(80%);
+}
+
+.btn-facebook {
+    background-image: url("../img/socials/facebook.svg");
+    background-color: $facebook !important;
+    border-color: $facebook !important;
+}
+
+.btn-twitter {
+    background-image: url("../img/socials/twitter.svg");
+    background-color: $twitter !important;
+    border-color: $twitter !important;
+}
+
+.btn-instagram {
+    background-image: url("../img/socials/instagram.svg");
+    background-color: $instagram !important;
+    border-color: $instagram !important;
+}
+
+.btn-reddit {
+    background-image: url("../img/socials/reddit.svg");
+    background-color: $reddit !important;
+    border-color: $reddit !important;
+}
+
+.btn-discord {
+    background-image: url("../img/socials/discord.svg");
+    background-color: $discord !important;
+    border-color: $discord !important;
+}
+
+.btn-youtube {
+    background-image: url("../img/socials/youtube.svg");
+    background-color: $youtube !important;
+    border-color: $youtube !important;
+}
+
+.btn-github {
+    background-image: url("../img/socials/github.svg");
+    background-color: $github !important;
+    border-color: $github !important;
+}
+
+.btn-steam {
+    background-image: url("../img/socials/steam.svg");
+    background-color: $steam !important;
+    border-color: $steam !important;
+}
