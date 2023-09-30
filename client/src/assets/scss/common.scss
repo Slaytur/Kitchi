@@ -1,5 +1,6 @@
 // @import 'https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap';
-@import 'https://fonts.googleapis.com/css2?family=Varela+Round&display=swap';
+// @import 'https://fonts.googleapis.com/css2?family=Varela+Round&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Inter&family=Source+Serif+4:opsz@8..60&display=swap';
 
 html {
     min-width: 100%;
@@ -9,6 +10,8 @@ html {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+
+    color: $text;
 }
 
 body, #root, #app {
@@ -16,25 +19,19 @@ body, #root, #app {
 }
 
 body {
-    font-family: 'Varela Round', sans-serif;
-}
-
-p {
-    color: #ffffff80;
+    font-family: 'Source Serif 4', sans-serif;
 }
 
 a {
-  color: #0d6efd;
-
-  &:hover {
-    color: #0a58ca;
-  }
+    color: #0d6efd;
+    &:hover {
+        color: #0a58ca;
+    }
 }
 
 a:not([href]):not([class]) {
-  &,
-  &:hover {
-    color: inherit;
-    text-decoration: none;
-  }
+    &, &:hover {
+        color: inherit;
+        text-decoration: none;
+    }
 }
