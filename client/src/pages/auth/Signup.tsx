@@ -68,7 +68,10 @@ class Signup extends React.Component {
             void $.ajax({
                 type: `post`,
                 url: `${API_URL}/auth/signup`,
-                data: $(`#signup-form`).serialize()
+                data: $(`#signup-form`).serialize(),
+                xhrFields: {
+                    withCredentials: true
+                }
             }).then((res: { errors?: string, success?: boolean }) => {
                 if (res.errors !== undefined) {
                     $(`#signup-btn`).removeAttr(`disabled`);

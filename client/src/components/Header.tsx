@@ -22,7 +22,7 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
 
         this.state = {
             account: {
-                authenticated: false
+                authenticated: true
             }
         };
 

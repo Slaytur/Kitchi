@@ -60,7 +60,10 @@ class Login extends React.Component {
             void $.ajax({
                 type: `post`,
                 url: `${API_URL}/auth/login`,
-                data: $(`#login-form`).serialize()
+                data: $(`#login-form`).serialize(),
+                xhrFields: {
+                    withCredentials: true
+                }
             }).then((res: { errors: string, success: boolean }) => {
                 if (res.errors !== undefined) {
                     $(`#login-btn`).removeAttr(`disabled`);
@@ -77,7 +80,6 @@ class Login extends React.Component {
                     console.log(`[ACCOUNT SERVER]: ${JSON.stringify(res.success)}`);
 
                     setTimeout(() => {
-                        // TODO: Change to auto-login.
                         window.location.href = `${window.location.protocol}//${window.location.host}/dashboard`;
                     }, 1e3);
                 }
