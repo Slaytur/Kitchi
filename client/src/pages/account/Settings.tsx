@@ -122,11 +122,11 @@ class Settings extends React.Component {
                             </form>
                         </div>
                     </div>
-                    <div className="col">
+                    {/* <div className="col">
                         <div className="card card-body text-dark">
                             <a type="button" href={`${API_URL}/auth/delete`} className="btn btn-danger mt-2 disabled">Delete Account</a>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </main>
