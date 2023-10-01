@@ -48,11 +48,11 @@ class Home extends React.Component {
                         <h5 className="tw-text-1xl tw-font-bold tw-mt-4">AI-Powered Food Recognition</h5>
                     </div>
                     <div>
-                        <img src={Recipes} alt="A cooking recipe" className="tw-h-[256px]" href="account/Dashboard"/>
+                        <img src={Recipes} alt="A cooking recipe" className="tw-h-[256px]" />
                         <h5 className="tw-text-1xl tw-font-bold tw-mt-4">Intelligent Recipe Recommender</h5>
                     </div>
                     <div>
-                        <img src={Cookbook} alt="A magical cookbook" className="tw-h-[256px]" href="account/Dashboard"/>
+                        <img src={Cookbook} alt="A magical cookbook" className="tw-h-[256px]" />
                         <h5 className="tw-text-1xl tw-font-bold tw-mt-4">Personalized Cookbook</h5>
                     </div>
                 </div>
