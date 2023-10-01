@@ -19,7 +19,7 @@ router.get(`/`, (req, res) => {
                 : config.domain
             );
         });
-    }
+    } else res.redirect(typeof req.headers.host === `string` && req.headers.host.includes(`localhost`) ? `http://localhost:3000` : config.domain);
 });
 
 export default router;
