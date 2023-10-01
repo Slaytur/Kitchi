@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Error404 from './pages/404';
 
-// import Login from './pages/auth/Login';
+import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 
 // import Register from './pages/Register';
@@ -34,10 +34,8 @@ class App extends React.Component {
                     <Route path="/" element={<Home />} />
                     {/* Authentication */}
                     <Route path="/auth">
-                        {/* <Route path="/auth/login">
-                            <Login />
-                        </Route> */}
                         <Route path="/auth/signup" element={<Signup />} />
+                        <Route path="/auth/login" element={<Login />} />
                     </Route>
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/forums" element={<Forums />} />

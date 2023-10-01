@@ -11,19 +11,21 @@ import log from '../../utils/log';
 
 const router = Router();
 
-router.post(`/`, (req: Request<Record<string, never>, { success?: string, errors?: Error | string }, Record<string, never>, { username?: string, password?: string, hCaptcha?: string }>, res, next) => {
-    const username = req.query.username;
-    const password = req.query.password;
-    const hCaptcha = req.query.hCaptcha;
+router.post(`/`, (req: Request<Record<string, never>, { success?: string, errors?: Error | string }, { username?: string, password?: string, [`h-captcha-response`]?: string }, Record<string, never>>, res, next) => {
+    const username = req.body.username;
+    const password = req.body.password;
+    const hCaptchaKey = req.body[`h-captcha-response`];
+
+    // If on production, and Captcha is unsigned, reject.
+    if (config.mode === `prod` && typeof hCaptchaKey !== `string`) return res.json({ errors: `Please solve the captcha.` });
+
+    // If not all fields are filled out, somebody tampered with the form. Directly reject the request.
+    if (typeof username !== `string` ||
+        typeof password !== `string`
+    ) return res.status(400);
 
     // If the user is already logged in, then redirect them to the dashboard.
     if (req.isAuthenticated()) return res.redirect(`/dashboard`);
-
-    // If not all fields are filled out, somebody tampered with the form. Directly reject the request.
-    if (typeof username !== `string` || typeof password !== `string`) return res.status(400);
-
-    // Make sure the captcha was solved.
-    if (config.mode === `prod` && typeof hCaptcha !== `string`) return res.json({ errors: `Please solve the captcha.` });
 
     passport.authenticate(`login`, (err: Error, user: UserDoc, info: unknown) => {
         if (err !== undefined) {

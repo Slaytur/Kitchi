@@ -13,22 +13,21 @@ import type { UserDoc } from '../../models/user.model';
 
 const router = Router();
 
-router.post(`/`, (req: Request<Record<string, never>, { success?: string, errors?: Error | string }, { username?: string, email?: string, password?: string, [`confirm-password`]?: string, hCaptcha?: string }, Record<string, never>>, res, next) => {
-    // If on production, and Captcha is unsigned, reject.
-    if (config.mode === `prod` && typeof req.query.hCaptcha !== `string`) return res.json({ errors: `Please solve the captcha.` });
-
+router.post(`/`, (req: Request<Record<string, never>, { success?: string, errors?: Error | string }, { username?: string, email?: string, password?: string, [`confirm-password`]?: string, [`h-captcha-response`]?: string }, Record<string, never>>, res, next) => {
     const username = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
     const confirmPassword = req.body[`confirm-password`];
-    const hCaptchaKey = req.body.hCaptcha;
+    const hCaptchaKey = req.body[`h-captcha-response`];
+
+    // If on production, and Captcha is unsigned, reject.
+    if (config.mode === `prod` && typeof hCaptchaKey !== `string`) return res.json({ errors: `Please solve the captcha.` });
 
     // If not all fields are filled out, somebody tampered with the form. Directly reject the request.
     if (typeof username !== `string` ||
         typeof email !== `string` ||
         typeof password !== `string` ||
-        typeof confirmPassword !== `string` ||
-        (config.mode === `prod` && typeof hCaptchaKey !== `string`)
+        typeof confirmPassword !== `string`
     ) return res.status(400);
 
     // Username must contain at least one alphabetical character.

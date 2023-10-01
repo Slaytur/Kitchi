@@ -47,7 +47,7 @@ class Signup extends React.Component {
                         <HCaptcha ref={this.hcaptcha} sitekey="3d46d1aa-00b6-469e-8dc4-23d719b27674" />
 
                         <div className="d-grid gap-2 mt-3">
-                            <input type="submit" value="Sign Up" id="signup-button" className="btn btn-darken btn-green" />
+                            <input type="submit" value="Sign Up" id="signup-btn" className="btn btn-darken btn-green" />
                         </div>
                     </form>
                 </div>
@@ -62,16 +62,16 @@ class Signup extends React.Component {
         $(`#signup-form`).on(`submit`, e => {
             e.preventDefault();
 
-            $(`#signup-button`).attr(`disabled`, `true`);
+            $(`#signup-btn`).attr(`disabled`, `true`);
             $(`#signup-error`).hide();
 
             void $.ajax({
                 type: `post`,
                 url: `${API_URL}/auth/signup`,
-                data: `${$(`#signup-form`).serialize()}&hcaptcha=${this.hcaptcha.current?.getRespKey()}`
+                data: $(`#signup-form`).serialize()
             }).then((res: { errors: string, success: boolean }) => {
                 if (res.errors !== undefined) {
-                    $(`#signup-button`).removeAttr(`disabled`);
+                    $(`#signup-btn`).removeAttr(`disabled`);
                     $(`#signup-error`).show();
 
                     this.hcaptcha.current?.resetCaptcha();
@@ -80,17 +80,22 @@ class Signup extends React.Component {
                     console.error(`[ACCOUNT SERVER]: ${JSON.stringify(res.errors)}`);
                 } else if (res.success) {
                     $(`#signup-success`).show();
-
                     $(`#signup-success-message`).text(res.success);
+
                     console.log(`[ACCOUNT SERVER]: ${JSON.stringify(res.success)}`);
 
-                    setTimeout(() => {
-                        // TODO: Change to auto-login.
-                        window.location.href = `${window.location.protocol}//${window.location.host}/auth/login`;
-                    }, 1e4);
+                    void $.ajax({
+                        type: `post`,
+                        url: `${API_URL}/auth/login`,
+                        data: $(`#signup-form`).serialize()
+                    });
+
+                    //     // TODO: Change to auto-login.
+                    // window.location.href = `${window.location.protocol}//${window.location.host}/auth/login`;
+                    // }, 1e4);
                 }
             }).catch(() => {
-                $(`#signup-button`).removeAttr(`disabled`);
+                $(`#signup-btn`).removeAttr(`disabled`);
                 $(`#signup-error`).show();
 
                 this.hcaptcha.current?.resetCaptcha();
