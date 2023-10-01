@@ -12,7 +12,7 @@ load_dotenv()
 client = MongoClient(os.getenv('MONGO_URI')) 
 
 #filrecalg
-recipe_data = pd.read_csv("FilRec\dataset\RAW_recipes.csv")
+recipe_data = pd.read_csv("./dataset/RAW_recipes.csv")
 ingredients = recipe_data['ingredients']
 tags= recipe_data['tags']
 

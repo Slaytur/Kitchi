@@ -1,13 +1,35 @@
-import React from "react";
+import React from 'react';
 
-import axios from "axios";
+import axios from 'axios';
 
 import "../../assets/scss/pages/dashboard.scss";
-// import { PassThrough } from "stream";
 
 declare const API_URL: string;
 
-class Dashboard extends React.Component {
+interface RecommendedCard {
+    title: string
+    description: string
+
+    id: string
+}
+
+interface CookbookEntry {
+    name: string
+    id: string
+    description: string
+}
+
+class Dashboard extends React.Component<Record<never, never>, { recommendedCards: RecommendedCard[], cookbook: CookbookEntry[], ingredients: string[] }> {
+    constructor (props: Record<never, never>) {
+        super(props);
+
+        this.state = {
+            recommendedCards: [],
+            cookbook: [],
+            ingredients: []
+        };
+    }
+
     render = (): React.ReactNode => (
         <main className="tw-text-center">
             <div className="tw-px-[10%] tw-h-fit tw-bg-[#ffffff]">
@@ -18,107 +40,33 @@ class Dashboard extends React.Component {
                     <div className="tw-h-[2px] tw-w-full -tw-mt-2 tw-mb-3 tw-mx-2 tw-opacity-30 tw-bg-offblack"></div>
 
                     <div className="tw-grid tw-gap-4 tw-grid-flow-col-dense tw-overflow-auto tw-auto-cols-max tw-sm:grid-flow-row">
-                        <div className="card tw-p-3 tw-flow-root">
-                            <h1 className="tw-text-[24px]">Recipe Card</h1>
-                            <p className=" tw-mb-60"> Description </p>
-                            <button className=" tw-w-fit tw-px-2 tw-bg-offwhite tw-py-1 tw-rounded-full tw-float-right">
-                                Add to Cookbook
-                            </button>
-                        </div>
-                        <div className="card tw-p-3 tw-flow-root">
-                            <h1 className="tw-text-[24px]">Recipe Card</h1>
-                            <p className=" tw-mb-60"> Description </p>
-                            <button className=" tw-w-fit tw-px-2 tw-bg-offwhite tw-py-1 tw-rounded-full tw-float-right">
-                                Add to Cookbook
-                            </button>
-                        </div>
-                        <div className="card tw-p-3 tw-flow-root">
-                            <h1 className="tw-text-[24px]">Recipe Card</h1>
-                            <p className=" tw-mb-60"> Description </p>
-                            <button className=" tw-w-fit tw-px-2 tw-bg-offwhite tw-py-1 tw-rounded-full tw-float-right">
-                                Add to Cookbook
-                            </button>
-                        </div>
-                        <div className="card tw-p-3 tw-flow-root">
-                            <h1 className="tw-text-[24px]">Recipe Card</h1>
-                            <p className=" tw-mb-60"> Description </p>
-                            <button className=" tw-w-fit tw-px-2 tw-bg-offwhite tw-py-1 tw-rounded-full tw-float-right">
-                                Add to Cookbook
-                            </button>
-                        </div>
-                        <div className="card tw-p-3 tw-flow-root">
-                            <h1 className="tw-text-[24px]">Recipe Card</h1>
-                            <p className=" tw-mb-60"> Description </p>
-                            <button className=" tw-w-fit tw-px-2 tw-bg-offwhite tw-py-1 tw-rounded-full tw-float-right">
-                                Add to Cookbook
-                            </button>
-                        </div>
-                        <div className="card tw-p-3 tw-flow-root">
-                            <h1 className="tw-text-[24px]">Recipe Card</h1>
-                            <p className=" tw-mb-60"> Description </p>
-                            <button className=" tw-w-fit tw-px-2 tw-bg-offwhite tw-py-1 tw-rounded-full tw-float-right">
-                                Add to Cookbook
-                            </button>
-                        </div>
+                        {this.state.recommendedCards.map((x, i) => (
+                            <div key={`recommended-recipe-${i}`} className="card tw-p-3 tw-flow-root">
+                                <h1 className="tw-text-[24px]">{x.title}</h1>
+                                <p className="tw-mb-60">{x.description}</p>
+                                <button className=" tw-w-fit tw-px-2 tw-bg-offwhite tw-py-1 tw-rounded-full tw-float-right">Add to Cookbook</button>
+                            </div>
+                        ))}
                     </div>
 
-                    {/* <div className="tw-w-full tw-p-2 tw-justify-center tw-flex">
-                        <button className="tw-text-right tw-mx-full tw-py-1 tw-px-3 tw-w-fit tw-whitespace-nowrap tw-border-none tw-bg-[#ffffff]">
-                            Load More
-                        </button>
-                    </div> */}
-                    {/* <div className="tw-h-[2px] tw-w-1/2 tw-mx-auto -tw-mt-2 tw-mb-3 tw-opacity-30 tw-bg-offblack"></div> */}
+                    <div className="tw-h-[2px] tw-w-1/2 tw-mx-auto -tw-mt-2 tw-mb-3 tw-opacity-30 tw-bg-offblack"></div>
 
-                    {/* cookbook */}
-
-                    <h1 className="tw-w-full tw-font-bold tw-mt-10 tw-pl-1 tw-text-[40px]">
-                        Cookbook
-                    </h1>
+                    {/* Cookbook */}
+                    <h1 className="tw-w-full tw-font-bold tw-mt-10 tw-pl-1 tw-text-[40px]">Cookbook</h1>
                     <div className=" tw-grid-cols-1 tw-grid shadow tw-max-h-48 tw-gap-y-2 tw-p-4">
-                        <button className=" tw-flex tw-w-full tw-rounded-full tw-align-middle  tw-px-8 tw-border-none tw-border-[2px] tw-border-[#2828289d] ">
-                            <p className=" tw-font-bold my-auto">Recipe Name</p>
-                            <p className=" my-auto tw-ml-3">Description</p>
-                        </button>
-                        <button className=" tw-flex tw-w-full tw-rounded-full tw-align-middle  tw-px-8 tw-border-none tw-border-[2px] tw-border-[#2828289d] ">
-                            <p className=" tw-font-bold my-auto">Recipe Name</p>
-                            <p className=" my-auto tw-ml-3 ">Description</p>
-                        </button>
-                        <button className=" tw-flex tw-w-full tw-rounded-full tw-align-middle  tw-px-8 tw-border-none tw-border-[2px] tw-border-[#2828289d] ">
-                            <p className=" tw-font-bold my-auto">Recipe Name</p>
-                            <p className=" my-auto tw-ml-3 ">Description</p>
-                        </button>
-                        <button className=" tw-flex tw-w-full tw-rounded-full tw-align-middle  tw-px-8 tw-border-none tw-border-[2px] tw-border-[#2828289d] ">
-                            <p className=" tw-font-bold my-auto">Recipe Name</p>
-                            <p className=" my-auto tw-ml-3 ">Description</p>
-                        </button>
+                        {this.state.cookbook.map((x, i) => (
+                            <button key={`cookbook-entry-${i}`} className="tw-flex tw-w-full tw-rounded-full tw-align-middle tw-px-8 tw-border-none tw-border-[2px] tw-border-[#2828289d]" onClick={(() => window.open(`/recipes/${x.id}`))}>
+                                <p className="tw-font-bold my-auto">{x.name}</p>
+                                <p className="my-auto tw-ml-3">{x.description}</p>
+                            </button>
+                        ))}
                     </div>
 
                     {/* Pantry */}
-
-                    <h1 className="tw-w-full tw-font-bold tw-mt-10 tw-pl-1 tw-text-[40px]">
-                        Pantry
-                    </h1>
+                    <h1 className="tw-w-full tw-font-bold tw-mt-10 tw-pl-1 tw-text-[40px]">Pantry</h1>
                     <div className="tw-flex tw-w-full">
                         <div className=" tw-w-full tw-flex tw-flex-wrap tw-h-min tw-whitespace-nowrap tw-overflow-y-scroll tw-scroll-smooth shadow tw-py-2 tw-max-h-48 tw-gap-y-2">
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
-                            <p className="ingredient"> - Ingredient</p>
+                            {this.state.ingredients.map((x, i) => (<li key={`ingredient-${i}`} className="ingredient">{x}</li>))}
                         </div>
                         <div className=" tw-p-4">
                             <p className="tw-w-full tw-text-center tw-mr-3 tw-text-xl">
@@ -154,15 +102,13 @@ class Dashboard extends React.Component {
                 )
             );
 
-        void axios
-            .get(`${API_URL}/dashboarddata`, { withCredentials: true })
-            .then((res) => {
-                if (res.data?.authenticated !== true) return;
-                return 5;
-            })
-            .catch(() =>
-                console.error(`[ACCOUNT SERVER]: Could not get account data.`)
-            );
+        void axios.get(`${API_URL}/dashboarddata`, { withCredentials: true }).then(res => {
+            this.setState({
+                recommendedCards: res.data.recommendedCards ?? [],
+                cookbook: res.data.cookbook ?? [],
+                ingredients: res.data.ingredients ?? []
+            });
+        }).catch(() => console.error(`[ACCOUNT SERVER]: Could not get recommended data.`));
     };
 }
 

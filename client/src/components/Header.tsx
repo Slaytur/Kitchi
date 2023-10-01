@@ -9,19 +9,19 @@ declare const API_URL: string;
 
 interface HeaderState {
     account: {
-        authenticated: boolean;
-        username?: string;
-        displayName?: string;
-        avatar?: string;
-    };
+        authenticated: boolean
+        username?: string
+        displayName?: string
+        avatar?: string
+    }
 
-    accountDropdownState: boolean;
+    accountDropdownState: boolean
 }
 
 class Header extends React.Component<Record<string, never>, HeaderState> {
     nav: React.RefObject<HTMLDivElement>;
 
-    constructor(props: Record<string, never>) {
+    constructor (props: Record<string, never>) {
         super(props);
 
         this.state = {
@@ -122,6 +122,9 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                                     >
                                         Recipes
                                     </a>
+                                </li>
+                                <li className="nav-item">
+                                    <a href="/recipes" className={`nav-link ${window.location.pathname === `/recipes` ? `active disabled` : ``}`}>Recipes</a>
                                 </li>
                             </ul>
                             <form
@@ -284,11 +287,11 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                     account:
                         res.data?.authenticated === true
                             ? {
-                                  authenticated: true,
-                                  username: res.data.username,
-                                  displayName: res.data.displayName,
-                                  avatar: res.data.avatar
-                              }
+                                authenticated: true,
+                                username: res.data.username,
+                                displayName: res.data.displayName,
+                                avatar: res.data.avatar
+                            }
                             : { authenticated: false }
                 });
             })

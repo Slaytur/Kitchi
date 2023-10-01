@@ -25,5 +25,5 @@ const Recipe = Mongoose.model<RecipeDoc>(`Recipe`, RecipeSchema);
 
 export {
     Recipe,
-    type RecipeDoc,
+    type RecipeDoc
 };
