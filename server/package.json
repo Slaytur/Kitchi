@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "start": "node ./dist/server/src/index.js --baseURL https://slaytur.warzon.io/api --port 8995",
+    "start": "node ./dist/src/index.js --baseURL https://slaytur.warzon.io/api --port 8995",
     "dev": "ts-node ./src/index.ts",
     "dev:lint": "eslint . --fix --ext .ts",
     "dev:lint:ci": "eslint . --ext .ts"
