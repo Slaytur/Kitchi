@@ -54,7 +54,7 @@ class Dashboard extends React.Component {
                             Load More
                         </button>
                     </div> */}
-                    <div className="tw-h-[2px] tw-w-1/2 tw-mx-auto -tw-mt-2 tw-mb-3 tw-opacity-30 tw-bg-offblack"></div>
+                    {/* <div className="tw-h-[2px] tw-w-1/2 tw-mx-auto -tw-mt-2 tw-mb-3 tw-opacity-30 tw-bg-offblack"></div> */}
 
                     {/* cookbook */}
 
