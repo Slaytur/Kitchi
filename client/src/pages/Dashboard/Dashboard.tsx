@@ -3,7 +3,7 @@ import React from 'react';
 
 // import { faDownload, faDesktop } from '@fortawesome/free-solid-svg-icons';
 
-import '../../assets/scss/pages/dashboard.scss';
+import "../../assets/scss/pages/dashboard.scss";
 
 
 // interface UserData {

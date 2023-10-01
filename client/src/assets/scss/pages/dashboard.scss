@@ -12,13 +12,14 @@
 .dash-container {
     padding: 8px;
     background: #191919;
+    margin-bottom: 40px;
 }
 
 .dash-header {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
  
-    background: linear-gradient(to right, #1e90ff, #b721ff);
+    background: linear-gradient(to bottom, #5f9914, rgb(83, 155, 21));
 }
 
 .dash-header > h1 {

@@ -6,12 +6,20 @@ interface UserDoc extends Mongoose.Document {
     id: Snowflake
 
     banned: boolean
-    rank: `USER` | `VIP` | `ADMIN`
+    rank: `USER` | `EXPERT` | `ADMIN`
+
+    pantry: string[]
+    Cookbook: string[]
+
+    password: string
 
     username: string
     email: string
     discordID: string
     avatar?: string
+
+    creationIP: string
+    lastIP: string
 
     token: string
 }
@@ -22,6 +30,8 @@ const UserSchema = new Mongoose.Schema({
 
     banned: { type: Boolean, required: false, default: false },
     rank: { type: String, required: false, default: `USER` },
+
+    password: { type: String, required: true },
 
     username: { type: String, required: true, maxlength: 32 },
     email: { type: String, required: true, unique: true },

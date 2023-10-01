@@ -74,7 +74,6 @@ class Signup extends React.Component {
                     $(`#signup-button`).attr(`disabled`, `false`);
                     $(`#signup-error`).show();
 
-                    // This needs a re-implementation.
                     this.hcaptcha.current?.resetCaptcha();
 
                     $(`#signup-error-message`).text(res.errors);
@@ -95,8 +94,7 @@ class Signup extends React.Component {
                 $(`#signup-button`).attr(`disabled`, `false`);
                 $(`#signup-error`).show();
 
-                // This needs a re-implementation.
-                // hcaptcha.reset();
+                this.hcaptcha.current?.resetCaptcha();
 
                 $(`#signup-error-message`).text(`There was an issue registering your account.`);
                 console.error(`[ACCOUNT SERVER]: UNREACHABLE`);
