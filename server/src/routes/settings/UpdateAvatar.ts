@@ -5,16 +5,17 @@ const router = Router();
 
 router.post(`/`, (req, res) => {
     if (!req.isAuthenticated()) return res.redirect(`/login`);
-    if (!req.body[`display-avatar`] || typeof req.body[`display-avatar`] !== `string`) return res.json({ errors: `Please fill out all fields` });
+    if (typeof req.body[`display-avatar`] !== `string`) return res.json({ errors: `Please fill out all fields` });
 
-    void User.findOne({ username: (<any>req).user.username }).then(user => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    void User.findOne({ username: (req.user as any).user.username }).then(user => {
         if (user === null) return res.json({ errors: `Invalid account data` });
         user.avatar = req.body[`display-avatar`];
 
         void user.save()
-            .then(() => res.json({ success: `Succesfully updated account avatar.` }))
+            .then(() => res.redirect(req.headers.host !== undefined && req.headers.host?.includes(`localhost`) ? `http://localhost:3000/settings` : `/settings`))
             .catch(() => res.json({ errors: `Invalid account data` }));
-    });    
+    });
 });
 
 export default router;

@@ -18,7 +18,7 @@ class Login extends React.Component {
         <main className="pg-login">
             <div className="container tw-my-8">
                 <h1 className="text-center my-5">Log In</h1>
-                <div className="card card-body tw-bg-sand text-dark">
+                <div className="card card-body text-dark">
                     <form action="/auth/login" method="POST" id="login-form">
                         <div id="login-error" className="alert alert-danger alert-dismissible fade show" role="alert">
                             <span id="login-error-message"></span>

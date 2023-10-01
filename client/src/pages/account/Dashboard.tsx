@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
     render = (): React.ReactNode => (
         <main className="tw-text-center tw-px-[10%] tw-w-screen tw-h-fit tw-bg-[#FFFFFF]">
             <div className="tw-h-full tw-w-full tw-bg-white tw-p-8 tw-text-left">
-                <h1 className='tw-w-full tw-font-bold tw-mt-10 tw-pl-1 tw-text-[40px]'>Recomended</h1>
+                <h1 className='tw-w-full tw-font-bold tw-mt-10 tw-pl-1 tw-text-[40px]'>Recommended</h1>
                 <div className='tw-h-[2px] tw-w-full -tw-mt-2 tw-mb-3 tw-mx-2 tw-opacity-30 tw-bg-offblack'></div>
 
                 <div className='tw-grid tw-gap-4 tw-grid-cols-3'>

@@ -40,32 +40,33 @@ class MyHandler(SimpleHTTPRequestHandler):
 
         return []
         
-def do_POST(self):
-    if self.path == "/objectdetect":
-        content_length = int(self.headers['Content-Length'])
-        image_data = self.rfile.read(content_length)
+    def do_POST(self):
+        if "/objectdetect" in self.path:
+            content_length = int(self.headers['Content-Length'])
+            image_data = self.rfile.read(content_length)
 
-        # Parse the query parameters to get the 'userid' value
-        query_params = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
-        userid = query_params.get('userid', [''])[0]
+            # Parse the query parameters to get the 'userid' value
+            query_params = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
+            userid = query_params.get('userid', [''])[0]
+            print(userid)
 
-        returned_data = self.process_images(image_data)
+            returned_data = self.process_images(image_data)
 
-        self.send_response(200)
-        self.send_header("Content-type", "text/plain")
+            self.send_response(200)
+            self.send_header("Content-type", "text/plain")
 
-        # Include 'userid' in the response
-        response_data = {
-            "userid": userid,
-            "result": ",".join(returned_data)
-        }
+            # Include 'userid' in the response
+            response_data = {
+                "userid": userid,
+                "result": ",".join(returned_data)
+            }
 
-        self.end_headers()
-        self.wfile.write(json.dumps(response_data).encode("utf-8"))
-    else:
-        self.send_response(404)
-        self.end_headers()
-        self.wfile.write(b"404 Not Found")
+            self.end_headers()
+            self.wfile.write(json.dumps(response_data).encode("utf-8"))
+        else:
+            self.send_response(404)
+            self.end_headers()
+            self.wfile.write(b"404 Not Found")
 
 
             
