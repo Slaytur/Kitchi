@@ -18,7 +18,7 @@ class Settings extends React.Component {
                             <form action={`${API_URL}/settings/display-name`} method="POST" id="account-options-form">
                                 <div className="form-group">
                                     <label htmlFor="display-name" className="form-label">Display Name</label>
-                                    <input type="text" id="display-name" name="display-name" className="form-control" placeholder="Change display name" maxLength={32} />
+                                    <input type="text" id="display-name" name="display-name" className="form-control" placeholder="Change display name" maxLength={20} />
                                     <span className="form-text text-dark">You may only change the capitalization, not the actual spelling.</span>
                                 </div>
                                 <input type="submit" id="account-update-info" value="Update Display Name" className="btn btn-primary btn-block mt-3" />

@@ -40,8 +40,8 @@ const UserSchema = new Mongoose.Schema({
     pantry: { type: Array, required: false, default: [] },
     cookbook: { type: Array, required: false, default: [] },
 
-    username: { type: String, required: true, unique: true, maxlength: 32 },
-    displayName: { type: String, required: true, unique: true, maxlength: 32 },
+    username: { type: String, required: true, unique: true, maxlength: 20 },
+    displayName: { type: String, required: true, unique: true, maxlength: 20 },
 
     email: { type: String, required: false, unique: true },
     password: { type: String, required: true },
