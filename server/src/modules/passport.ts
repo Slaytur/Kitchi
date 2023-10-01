@@ -50,6 +50,28 @@ passport.use(`signup`, new passportLocal.Strategy({
             username: username.toLowerCase(),
             displayName: username,
 
+            settings: {
+                skillLevel: 0,
+                interests: {
+                    [`0`]: true,
+                    [`1`]: true,
+                    [`2`]: true,
+                    [`3`]: true,
+                    [`4`]: true,
+                    [`5`]: true,
+                    [`6`]: true
+                },
+                restrictions: {
+                    [`0`]: true,
+                    [`1`]: true,
+                    [`2`]: true,
+                    [`3`]: true,
+                    [`4`]: true,
+                    [`5`]: true,
+                    [`6`]: true
+                }
+            },
+
             token: `n${crypto.randomBytes(32).toString(`hex`)}`
         });
 

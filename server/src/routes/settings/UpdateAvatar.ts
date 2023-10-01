@@ -13,7 +13,7 @@ router.post(`/`, (req, res) => {
         user.avatar = req.body[`display-avatar`];
 
         void user.save()
-            .then(() => res.redirect(`/settings`))
+            .then(() => res.redirect(req.headers.host !== undefined && req.headers.host?.includes(`localhost`) ? `http://localhost:3000/settings` : `/settings`))
             .catch(() => res.json({ errors: `Invalid account data` }));
     });
 });

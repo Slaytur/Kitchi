@@ -2,8 +2,6 @@ import React from 'react';
 
 import axios from 'axios';
 
-import Burger from '../../assets/img/misc/burger_pfp.png';
-
 declare const API_URL: string;
 
 class Settings extends React.Component {
@@ -37,31 +35,31 @@ class Settings extends React.Component {
                             <h3 className="text-center my-3">Food Interests</h3>
                             <form action={`${API_URL}/settings/foodinterests`} method="POST" id="food-interests-form">
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value={0} id="interest-american" />
+                                    <input className="form-check-input" type="checkbox" value={0} name="interest-american" id="interest-american" />
                                     <label className="form-check-label" htmlFor="interest-american">American</label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value={1} id="interest-asian" />
+                                    <input className="form-check-input" type="checkbox" value={1} name="interest-asian" id="interest-asian" />
                                     <label className="form-check-label" htmlFor="interest-asian">Asian</label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value={2} id="interest-cajun" />
+                                    <input className="form-check-input" type="checkbox" value={2} name="interest-cajun" id="interest-cajun" />
                                     <label className="form-check-label" htmlFor="interest-cajun">Cajun</label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value={3} id="interest-canadian" />
+                                    <input className="form-check-input" type="checkbox" value={3} name="interest-canadian" id="interest-canadian" />
                                     <label className="form-check-label" htmlFor="interest-canadian">Canadian</label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value={4} id="diet-french" />
+                                    <input className="form-check-input" type="checkbox" value={4} name="interest-french" id="interest-french" />
                                     <label className="form-check-label" htmlFor="interest-french">French</label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value={5} id="interest-italian" />
+                                    <input className="form-check-input" type="checkbox" value={5} name="interest-italian" id="interest-italian" />
                                     <label className="form-check-label" htmlFor="interest-italian">Italian</label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value={6} id="interest-spicy" />
+                                    <input className="form-check-input" type="checkbox" value={6} name="interest-spicy" id="interest-spicy" />
                                     <label className="form-check-label" htmlFor="interest-spicy">Spicy</label>
                                 </div>
                                 <input type="submit" value="Update Food Interests" className="btn btn-darken btn-green btn-block mt-3" />
@@ -69,39 +67,39 @@ class Settings extends React.Component {
                         </div>
                     </div>
                     <div className="col-sm-6">
-                    <div className="card card-body text-dark my-4">
+                        <div className="card card-body text-dark my-4">
                             <h3 className="text-center my-3">Dietary Restrictions</h3>
                             <form action={`${API_URL}/settings/dietaryrestrictions`} method="POST" id="dietary-restrictions-form">
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value={0} id="diet-glutenfree" />
-                                    <label className="form-check-label" htmlFor="diet-kosher">Gluten Free</label>
+                                    <input className="form-check-input" type="checkbox" value={0} name="diet-glutenfree" id="diet-glutenfree" />
+                                    <label className="form-check-label" htmlFor="diet-glutenfree">Gluten Free</label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value={1} id="diet-halal" />
+                                    <input className="form-check-input" type="checkbox" value={1} name="diet-halal" id="diet-halal" />
                                     <label className="form-check-label" htmlFor="diet-halal">Halal</label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value={2} id="diet-kosher" />
+                                    <input className="form-check-input" type="checkbox" value={2} name="diet-kosher" id="diet-kosher" />
                                     <label className="form-check-label" htmlFor="diet-kosher">Kosher</label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value={3} id="diet-lactoseintolerant" />
+                                    <input className="form-check-input" type="checkbox" value={3} name="diet-lactoseintolerant" id="diet-lactoseintolerant" />
                                     <label className="form-check-label" htmlFor="diet-lactoseintolerant">Lactose Intolerant</label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value={4} id="diet-lowsodium" />
+                                    <input className="form-check-input" type="checkbox" value={4} name="diet-lowsodium" id="diet-lowsodium" />
                                     <label className="form-check-label" htmlFor="diet-lowsodium">Low Sodium</label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value={5} id="diet-lowsugar" />
+                                    <input className="form-check-input" type="checkbox" value={5} name="diet-lowsugar" id="diet-lowsugar" />
                                     <label className="form-check-label" htmlFor="diet-lowsugar">Low Sugar</label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value={6} id="diet-vegan" />
+                                    <input className="form-check-input" type="checkbox" value={6} name="diet-vegan" id="diet-vegan" />
                                     <label className="form-check-label" htmlFor="diet-vegan">Vegan</label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value={7} id="diet-vegeterian" />
+                                    <input className="form-check-input" type="checkbox" value={7} name="diet-vegeterian" id="diet-vegeterian" />
                                     <label className="form-check-label" htmlFor="diet-vegeterian">Vegeterian</label>
                                 </div>
                                 <input type="submit" value="Update Dietary Restrictions" className="btn btn-darken btn-green btn-block mt-3" />
@@ -146,17 +144,16 @@ class Settings extends React.Component {
             }
         }).catch(() => console.error(`[ACCOUNT SERVER]: Could not determine login status.`));
 
-        void axios.get(`${API_URL}/auth/settings/get`, { withCredentials: true }).then(res => {
+        void axios.get(`${API_URL}/settings/get`, { withCredentials: true }).then(res => {
             if (res.data?.authenticated !== true) return;
 
             $(`#skill-level`).val(res.data.skillLevel);
 
-            const interestNodes: NodeList = document.querySelectorAll(`#food-interests-form input[type=checkbox]`)
-            const restrictionNodes = document.querySelectorAll(`#dietary-restrictions-form input[type=checkbox]`)
+            const interestNodes: NodeList = document.querySelectorAll(`#food-interests-form input[type=checkbox]`);
+            const restrictionNodes = document.querySelectorAll(`#dietary-restrictions-form input[type=checkbox]`);
 
-            res.data.interests.forEach((x: boolean, i: number) => { (interestNodes[i] as HTMLInputElement).value = String(x); });
-            res.data.restrictions.forEach((x: boolean, i: number) => { (restrictionNodes[i] as HTMLInputElement).value = String(x); });
-
+            Object.values(res.data.settings.interests as Record<string, boolean>).forEach((x, i) => { (interestNodes[i] as HTMLInputElement).checked = x; });
+            Object.values(res.data.settings.restrictions as Record<string, boolean>).forEach((x, i) => { (restrictionNodes[i] as HTMLInputElement).checked = x; });
         }).catch(() => console.error(`[ACCOUNT SERVER]: Could not get account settings.`));
     };
 }
