@@ -1,9 +1,9 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { faDownload, faDesktop } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faDesktop } from "@fortawesome/free-solid-svg-icons";
 
-import '../../assets/scss/pages/dashboard.scss';
+import "../../assets/scss/pages/dashboard.scss";
 
 declare const API_URL: string;
 
@@ -32,11 +32,19 @@ class Dashboard extends React.Component {
                         <div className="dash-config tw-mr-[7.5px]">
                             <h5 className="tw-mb-5">ShareX Config</h5>
                             <div className="dash-config-btns">
-                                <a href={`${API_URL}/settings/config`} target="_blank" rel="noreferrer" className="btn btn-sm btn-success download-btn">
+                                <a
+                                    href={`${API_URL}/settings/config`}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="btn btn-sm btn-success download-btn"
+                                >
                                     <FontAwesomeIcon icon={faDownload} />
                                     <span className="tw-ml-1">Download</span>
                                 </a>
-                                <a href="#" className="btn btn-sm btn-danger tutorial-btn disabled">
+                                <a
+                                    href="#"
+                                    className="btn btn-sm btn-danger tutorial-btn disabled"
+                                >
                                     <FontAwesomeIcon icon={faDesktop} />
                                     <span className="tw-ml-1">Tutorial</span>
                                 </a>
