@@ -73,10 +73,6 @@ class Home extends React.Component {
             </div>
         </main>
     );
-
-    componentDidMount = (): void => {
-        // $()
-    };
 }
 
 export default Home;

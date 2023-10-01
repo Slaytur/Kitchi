@@ -16,9 +16,9 @@ import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 
 // import Register from './pages/Register';
-import Forums from './pages/Forums';
+import Forums from './pages/social/Forums';
 
-import Dashboard from './pages/Dashboard/Dashboard';
+import Dashboard from './pages/account/Dashboard';
 
 import './assets/css/icofont/icofont.min.css';
 import './assets/scss/index.scss';

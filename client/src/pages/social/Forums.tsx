@@ -1,9 +1,9 @@
 import React from "react";
-import "../assets/scss/pages/register.scss";
+import "../../assets/scss/pages/register.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 
-import Heart from "../assets/img/icons/heart.png";
+import Heart from "../../assets/img/icons/heart.png";
 
 // import "client/src/assets/scss/pages/forums.scss";
 declare const API_URL: string;
