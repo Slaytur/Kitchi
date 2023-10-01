@@ -25,21 +25,17 @@ class Timer extends Component<Record<string, unknown>, TimerState> {
         };
     }
 
-    // Start the timer
     startTimer = (): void => {
         if (!this.state.isRunning) {
             if (this.state.isCountingDown) {
-                // Start a countdown timer
                 this.timer = setInterval(this.countdown, 1000);
             } else {
-                // Start a regular timer
                 this.timer = setInterval(this.updateTimer, 1000);
             }
             this.setState({ isRunning: true });
         }
     };
 
-    // Stop the timer
     stopTimer = (): void => {
         if (this.timer !== null) {
             clearInterval(this.timer);
@@ -47,7 +43,6 @@ class Timer extends Component<Record<string, unknown>, TimerState> {
         this.setState({ isRunning: false });
     };
 
-    // Reset the timer
     resetTimer = (): void => {
         if (this.timer !== null) {
             clearInterval(this.timer);
@@ -55,7 +50,6 @@ class Timer extends Component<Record<string, unknown>, TimerState> {
         this.setState({ minutes: 0, seconds: 0, isRunning: false });
     };
 
-    // Update the timer (for regular timer)
     updateTimer = (): void => {
         const { minutes, seconds } = this.state;
         if (seconds < 59) {
@@ -65,7 +59,6 @@ class Timer extends Component<Record<string, unknown>, TimerState> {
         }
     };
 
-    // Countdown timer
     countdown = (): void => {
         const { minutes, seconds } = this.state;
         if (minutes === 0 && seconds === 0) {
@@ -77,7 +70,6 @@ class Timer extends Component<Record<string, unknown>, TimerState> {
         }
     };
 
-    // Toggle between countdown and regular timer
     toggleTimerType = (): void => {
         this.resetTimer();
         this.setState((prevState) => ({ isCountingDown: !prevState.isCountingDown }));
@@ -88,13 +80,11 @@ class Timer extends Component<Record<string, unknown>, TimerState> {
         this.setState({ settingMinutes });
     };
 
-    // Update the setting for seconds
     handleSecondsChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const settingSeconds = parseInt(e.target.value, 10);
         this.setState({ settingSeconds });
     };
 
-    // Apply the set time
     applySetTime = (): void => {
         const { settingMinutes, settingSeconds } = this.state;
         this.setState({
