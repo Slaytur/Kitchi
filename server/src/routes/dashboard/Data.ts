@@ -3,6 +3,7 @@ import { Router } from 'express';
 import axios from 'axios';
 
 import { User } from '../../models/user.model';
+import { Recipe } from '../../models/recipe.model';
 
 const router = Router();
 
@@ -40,14 +41,32 @@ router.get(`/`, (req, res) => {
 
         const queryStr = [difficulties[user.settings.skillLevel]].concat(prefs, user.pantry).join(`;`);
 
-        void axios.post(`http://localhost:9036?user=${user.id}&query=${queryStr}`).then(data => {
-            console.log(data.data);
+        void axios.post(`http://localhost:9036`, {}, {
+            headers: {
+                userid: user.id,
+                query: queryStr
+            }
+        }).then(async data => {
+            const cardIDs = JSON.parse(JSON.stringify(data.data)).result.split(`,`);
+            const cardDocs: Array<{ title: string, description: string, id: number }> = [];
+
+            for (const id of cardIDs) {
+                const recipe = await Recipe.findOne({ id });
+                if (recipe === null) continue;
+
+                cardDocs.push({
+                    id,
+                    title: recipe.name,
+                    description: recipe.description
+                });
+            }
+
             res.status(200).json({
-                recommendedCards: data.data,
+                recommendedCards: cardDocs,
                 cookbook: user.cookbook,
                 ingredients: user.pantry
             });
-        });
+        }).catch(err => console.log(err));
     });
 });
 

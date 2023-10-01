@@ -1,5 +1,5 @@
 {
-  "name": "slaytur-v2",
+  "name": "kitchi",
   "version": "0.0.0",
   "description": "...",
   "private": true,
@@ -11,6 +11,8 @@
     "dev": "pnpm -r dev",
     "dev:client": "cd client && pnpm dev",
     "dev:server": "cd server && pnpm dev",
+    "dev:filter": "cd recommendation_filter && py filter.py",
+    "dev:ml": "cd Object_detection && py main.py",
     "lint": "pnpm -r lint",
     "lint:ci": "pnpm -r lint:ci",
     "full-reinstall": "rm -r node_modules pnpm-lock.yaml client/node_modules server/node_modules && pnpm install"

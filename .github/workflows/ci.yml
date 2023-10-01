@@ -40,4 +40,4 @@ jobs:
           port: '${{ secrets.SFTP_PORT }}'
           ssh_private_key: ${{ secrets.SFTP_PRIVKEY }} 
           local_path: './client/dist/*'
-          remote_path: '/var/www/slaytur.warzon.io'
+          remote_path: '/var/www/kitchi.warzon.io'

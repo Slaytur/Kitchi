@@ -1,7 +1,4 @@
-@font-face {
-    font-family: 'Moon';
-    src: url(../font/Moon\ Bold.otf) format('opentype');
-}
+@import 'https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz@8..60&display=swap';
 
 * {
     box-sizing: border-box !important;
@@ -26,7 +23,7 @@ body, #root, #app {
 }
 
 body {
-    font-family: 'Moon', sans-serif;
+    font-family: 'Source Serif 4', sans-serif;
 }
 
 a {
