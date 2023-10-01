@@ -13,3 +13,5 @@ variables.data-00000-of-00001
 .idea
 .DS_Store
 .vscode
+
+RAW_recipes.csv
