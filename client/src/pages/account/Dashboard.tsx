@@ -34,7 +34,9 @@ class Dashboard extends React.Component<Record<never, never>, { recommendedCards
         <main className="tw-text-center">
             <div className="tw-px-[10%] tw-h-fit tw-bg-[#ffffff]">
                 <div className="tw-h-full tw-w-full tw-bg-white tw-p-8 tw-text-left">
-                    <h1 className="tw-w-full tw-font-bold tw-mt-10 tw-pl-1 tw-text-[40px]">Recommended</h1>
+                    <h1 className="tw-w-full tw-font-bold tw-mt-10 tw-pl-1 tw-text-[40px]">
+                        Recommended
+                    </h1>
                     <div className="tw-h-[2px] tw-w-full -tw-mt-2 tw-mb-3 tw-mx-2 tw-opacity-30 tw-bg-offblack"></div>
 
                     <div className="tw-grid tw-gap-4 tw-grid-flow-col-dense tw-overflow-auto tw-auto-cols-max tw-sm:grid-flow-row">
@@ -67,12 +69,18 @@ class Dashboard extends React.Component<Record<never, never>, { recommendedCards
                             {this.state.ingredients.map((x, i) => (<li key={`ingredient-${i}`} className="ingredient">{x}</li>))}
                         </div>
                         <div className=" tw-p-4">
-                            <p className="tw-w-full tw-text-center tw-mr-3 tw-text-xl">Add</p>
+                            <p className="tw-w-full tw-text-center tw-mr-3 tw-text-xl">
+                                Add
+                            </p>
                             <input type="text"></input>
                             <div className="tw-flex tw-gap-x-2 tw-mx-auto tw-my-3 tw-whitespace-nowrap tw-w-full">
-                                <button className="tw-p-1 tw-rounded-xl tw-bg-offwhite tw-w-full">Add</button>
+                                <button className="tw-p-1 tw-rounded-xl tw-bg-offwhite tw-w-full">
+                                    Add
+                                </button>
                                 <div className="tw-w-full tw-h-fit"></div>
-                                <button className="tw-p-1 tw-rounded-xl tw-bg-offwhite ">Upload Image</button>
+                                <button className="tw-p-1 tw-rounded-xl tw-bg-offwhite ">
+                                    Upload Image
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -82,9 +90,17 @@ class Dashboard extends React.Component<Record<never, never>, { recommendedCards
     );
 
     componentDidMount = async (): Promise<void> => {
-        void axios.get(`${API_URL}/auth/authenticated`, { withCredentials: true }).then(res => {
-            if (res.data?.authenticated !== true) window.location.href = `${window.location.protocol}//${window.location.host}/auth/login`;
-        }).catch(() => console.error(`[ACCOUNT SERVER]: Could not determine login status.`));
+        void axios
+            .get(`${API_URL}/auth/authenticated`, { withCredentials: true })
+            .then((res) => {
+                if (res.data?.authenticated !== true)
+                    window.location.href = `${window.location.protocol}//${window.location.host}/auth/login`;
+            })
+            .catch(() =>
+                console.error(
+                    `[ACCOUNT SERVER]: Could not determine login status.`
+                )
+            );
 
         void axios.get(`${API_URL}/dashboarddata`, { withCredentials: true }).then(res => {
             this.setState({

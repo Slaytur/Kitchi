@@ -25,13 +25,22 @@ def filrec(pref):
          hits.append(len(kp.extract_keywords(ingredients[i])) + len(kp.extract_keywords(tags[i])))
     return hits
 
+def recipe_id(hits):
+    recipeids = recipe_data['id']
+    re_li = []
+    for i in range(0, len(hits)):
+        if(hits[i] != 0):
+            re_li.append((hits[i], recipeids[i]))
+            re_li.sort(reverse=True)
+            return re_li
+
 #access userdata
 def getPref(userID):
     pref=client['slaytur']['users'].find({"id" : userID})
     return pref
 
 def giveRecipe(userID):
-    return filrec(getPref(userID))
+    return recipe_id(filrec(getPref(userID)))
 
 #request handler
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
