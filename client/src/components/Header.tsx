@@ -11,6 +11,8 @@ interface HeaderState {
     account: {
         authenticated: boolean
         username?: string
+        displayName?: string
+        avatar?: string
     }
 }
 
@@ -52,6 +54,10 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                                     <a href="/forums" className={`nav-link ${window.location.pathname === `/forums` ? `active disabled` : ``}`}>Forums</a>
                                 </li>
                             </ul>
+                            <form className="d-flex tw-ms-1" role="search">
+                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                                <button className="btn btn-darken btn-green" type="submit">Search</button>
+                            </form>
                         </div>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -118,7 +124,7 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
         void axios.get(`${API_URL}/auth/authenticated`, { withCredentials: true }).then(res => {
             this.setState({
                 account: res.data?.authenticated === true
-                    ? { authenticated: true, username: res.data.username }
+                    ? { authenticated: true, username: res.data.username, displayName: res.data.displayName, avatar: res.data.avatar }
                     : { authenticated: false }
             });
         }).catch(() => console.error(`[ACCOUNT SERVER]: Could not determine login status.`));
