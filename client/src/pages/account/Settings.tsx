@@ -21,7 +21,7 @@ class Settings extends React.Component {
                                     <input type="text" id="display-name" name="display-name" className="form-control" placeholder="Change display name" maxLength={20} />
                                     <span className="form-text text-dark">You may only change the capitalization, not the actual spelling.</span>
                                 </div>
-                                <input type="submit" id="account-update-info" value="Update Display Name" className="btn btn-primary btn-block mt-3" />
+                                <input type="submit" id="account-update-info" value="Update Display Name" className="btn btn-darken btn-green btn-block mt-3" />
                             </form>
                         </div>
                         <div className="card card-body text-dark my-4">
@@ -30,7 +30,7 @@ class Settings extends React.Component {
                                 <label htmlFor="skill-level">Level (Beginner to Experienced):</label>
                                 <br />
                                 <input type="range" name="skill-level" id="skill-level" className="form-range" min={0} max={2} />
-                                <input type="submit" value="Update Skill Level" className="btn btn-primary btn-block mt-3" />
+                                <input type="submit" value="Update Skill Level" className="btn btn-darken btn-green btn-block mt-3" />
                             </form>
                         </div>
                         <div className="card card-body text-dark my-4">
@@ -64,7 +64,7 @@ class Settings extends React.Component {
                                     <input className="form-check-input" type="checkbox" value={6} id="interest-spicy" />
                                     <label className="form-check-label" htmlFor="interest-spicy">Spicy</label>
                                 </div>
-                                <input type="submit" value="Update Food Interests" className="btn btn-primary btn-block mt-3" />
+                                <input type="submit" value="Update Food Interests" className="btn btn-darken btn-green btn-block mt-3" />
                             </form>
                         </div>
                     </div>
@@ -104,7 +104,7 @@ class Settings extends React.Component {
                                     <input className="form-check-input" type="checkbox" value={7} id="diet-vegeterian" />
                                     <label className="form-check-label" htmlFor="diet-vegeterian">Vegeterian</label>
                                 </div>
-                                <input type="submit" value="Update Dietary Restrictions" className="btn btn-primary btn-block mt-3" />
+                                <input type="submit" value="Update Dietary Restrictions" className="btn btn-darken btn-green btn-block mt-3" />
                             </form>
                         </div>
                         <div className="card card-body text-dark my-4">
@@ -118,7 +118,7 @@ class Settings extends React.Component {
                                     <input type="text" id="display-avatar" name="display-avatar" className="form-control" placeholder="Avatar Image URL" maxLength={1000} />
                                     <span className="form-text text-dark">(Example: <a href="/assets/img/misc/burger_pfp.png">https://slaytur.warzon.io/assets/img/misc/burger_pfp.png</a>)</span>
                                 </div>
-                                <input type="submit" name="account-avatar-form" id="account-update-pfp" value="Update Profile Picture" className="btn btn-primary btn-block mt-3" />
+                                <input type="submit" name="account-avatar-form" id="account-update-pfp" value="Update Profile Picture" className="btn btn-darken btn-green btn-block mt-3" />
                             </form>
                         </div>
                     </div>
