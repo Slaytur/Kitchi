@@ -110,7 +110,7 @@ class Settings extends React.Component {
                         <div className="card card-body text-dark my-4">
                             <h2 className="text-center my-3">Avatar</h2>
                             <div className="avatar-preview mx-auto my-4">
-                                <img src="/assets/img/misc/burger_pfp.png" alt="Default burger avatar" className="avatar-preview profile-picture rounded tw-h-[256px]" id="user-avatar-preview" />
+                                <img src="/assets/img/misc/burger_pfp.png" alt="Default burger avatar" className="tw-rounded-full profile-picture tw-h-[256px]" id="user-avatar-preview" />
                             </div>
                             <form action={`${API_URL}/settings/updateavatar`} method="POST" id="account-avatar-form">
                                 <div className="form-group">
