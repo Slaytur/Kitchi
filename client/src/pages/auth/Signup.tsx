@@ -29,19 +29,19 @@ class Signup extends React.Component {
 
                         <div className="form-group mb-3">
                             <label htmlFor="email" className="form-label">Email</label>
-                            <input type="email" name="signup-email" id="email" className="form-control mb-3" placeholder="Email" autoComplete="email" required />
+                            <input type="email" name="email" id="email" className="form-control mb-3" placeholder="Email" autoComplete="email" required />
                         </div>
                         <div className="form-group mb-3">
                             <label htmlFor="username" className="form-label">Username</label>
-                            <input type="username" name="signup-username" id="username" className="form-control mb-3" placeholder="Username" autoComplete="username" required />
+                            <input type="username" name="username" id="username" className="form-control mb-3" placeholder="Username" autoComplete="username" required />
                         </div>
                         <div className="form-group mb-3">
                             <label htmlFor="password" className="form-label">Password</label>
-                            <input type="password" name="signup-password" id="password" className="form-control mb-3" placeholder="Password" autoComplete="new-password" required />
+                            <input type="password" name="password" id="password" className="form-control mb-3" placeholder="Password" autoComplete="new-password" required />
                         </div>
                         <div className="form-group mb-3">
                             <label htmlFor="confirm-password" className="form-label">Confirm Password</label>
-                            <input type="password" name="signup-password-confirm" id="confirm-password" className="form-control mb-3" placeholder="Confirm Password" autoComplete="confirm-password" required />
+                            <input type="password" name="confirm-password" id="confirm-password" className="form-control mb-3" placeholder="Confirm Password" autoComplete="confirm-password" required />
                         </div>
 
                         <HCaptcha ref={this.hcaptcha} sitekey="3d46d1aa-00b6-469e-8dc4-23d719b27674" />
@@ -68,10 +68,10 @@ class Signup extends React.Component {
             void $.ajax({
                 type: `post`,
                 url: `${API_URL}/auth/signup`,
-                data: $(`#signup-form`).serialize()
+                data: `${$(`#signup-form`).serialize()}&hcaptcha=${this.hcaptcha.current?.getRespKey()}`
             }).then((res: { errors: string, success: boolean }) => {
                 if (res.errors !== undefined) {
-                    $(`#signup-button`).attr(`disabled`, `false`);
+                    $(`#signup-button`).removeAttr(`disabled`);
                     $(`#signup-error`).show();
 
                     this.hcaptcha.current?.resetCaptcha();
@@ -79,7 +79,6 @@ class Signup extends React.Component {
                     $(`#signup-error-message`).text(res.errors);
                     console.error(`[ACCOUNT SERVER]: ${JSON.stringify(res.errors)}`);
                 } else if (res.success) {
-                    $(`#signup-button`).attr(`disabled`, `true`);
                     $(`#signup-success`).show();
 
                     $(`#signup-success-message`).text(res.success);
@@ -91,7 +90,7 @@ class Signup extends React.Component {
                     }, 1e4);
                 }
             }).catch(() => {
-                $(`#signup-button`).attr(`disabled`, `false`);
+                $(`#signup-button`).removeAttr(`disabled`);
                 $(`#signup-error`).show();
 
                 this.hcaptcha.current?.resetCaptcha();

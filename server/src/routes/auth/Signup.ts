@@ -1,6 +1,6 @@
 import config from '../../../.config/config';
 
-import { Router } from 'express';
+import { type Request, Router } from 'express';
 
 import * as xssFilters from 'xss-filters';
 import * as HCaptcha from 'hcaptcha';
@@ -13,21 +13,23 @@ import type { UserDoc } from '../../models/user.model';
 
 const router = Router();
 
-router.post(`/`, (req, res, next) => {
+router.post(`/`, (req: Request<Record<string, never>, { success?: string, errors?: Error | string }, { username?: string, email?: string, password?: string, [`confirm-password`]?: string, hCaptcha?: string }, Record<string, never>>, res, next) => {
     // If on production, and Captcha is unsigned, reject.
-    if (config.mode === `prod` && req.body[`h-captcha-response`] == null) return res.json({ errors: `Please solve the captcha.` });
+    if (config.mode === `prod` && typeof req.query.hCaptcha !== `string`) return res.json({ errors: `Please solve the captcha.` });
 
-    const username = (req.query.username as string);
-
-    const email = (req.query.email as string);
-
-    const password = (req.query.password as string);
-    const confirmPassword = (req.query.confirmPassword as string);
-
-    const hCaptchaKey = (req.query.hCaptcha as string);
+    const username = req.body.username;
+    const email = req.body.email;
+    const password = req.body.password;
+    const confirmPassword = req.body[`confirm-password`];
+    const hCaptchaKey = req.body.hCaptcha;
 
     // If not all fields are filled out, somebody tampered with the form. Directly reject the request.
-    if (username == null || email == null || password == null || confirmPassword == null || (config.mode === `prod` && hCaptchaKey == null)) return res.status(400);
+    if (typeof username !== `string` ||
+        typeof email !== `string` ||
+        typeof password !== `string` ||
+        typeof confirmPassword !== `string` ||
+        (config.mode === `prod` && typeof hCaptchaKey !== `string`)
+    ) return res.status(400);
 
     // Username must contain at least one alphabetical character.
     if (!/[a-zA-Z]/.test(username)) return res.json({ errors: `Your username must contain at least one letter.` });
@@ -51,7 +53,7 @@ router.post(`/`, (req, res, next) => {
     if (password.length < 8 || password.length > 64) return res.json({ errors: `Your password must be between 8 and 64 characters.` });
 
     // HCaptcha verification.
-    config.mode === `prod` && process.env.HCAPTCHA_KEY != null && HCaptcha.verify(process.env.HCAPTCHA_KEY, hCaptchaKey)
+    config.mode === `prod` && process.env.HCAPTCHA_KEY != null && typeof hCaptchaKey === `string` && HCaptcha.verify(process.env.HCAPTCHA_KEY, hCaptchaKey)
         .then(data => data != null && res.json({ errors: `Invalid captcha.` }))
         .catch(() => res.status(500));
 
@@ -60,7 +62,7 @@ router.post(`/`, (req, res, next) => {
 
         user.email = email;
 
-        const creationIP = req.header(`cf-conneting-ip`) ?? req.header(`x-forwarded-for`) ?? req.header(`x-real-ip`) ?? req.ip;
+        const creationIP = req.header(`cf-connecting-ip`) ?? req.header(`x-forwarded-for`) ?? req.header(`x-real-ip`) ?? req.ip;
 
         user.creationIP = creationIP;
         user.lastIP = creationIP;

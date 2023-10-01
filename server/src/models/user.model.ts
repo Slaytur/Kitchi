@@ -9,12 +9,11 @@ interface UserDoc extends Mongoose.Document {
     rank: `USER` | `EXPERT` | `ADMIN`
 
     pantry: string[]
-    Cookbook: string[]
-
-    password: string
+    cookbook: string[]
 
     username: string
     email: string
+    password: string
 
     creationIP: string
     lastIP: string
@@ -22,17 +21,28 @@ interface UserDoc extends Mongoose.Document {
     token: string
 }
 
+enum UserRank {
+    User,
+    Expert,
+    Admin
+}
+
 const UserSchema = new Mongoose.Schema({
     created: { type: Date, required: true },
     id: { type: String, required: true, unique: true },
 
     banned: { type: Boolean, required: false, default: false },
-    rank: { type: String, required: false, default: `USER` },
+    rank: { type: Number, required: false, default: UserRank.User },
 
-    password: { type: String, required: true },
+    pantry: { type: Array, required: false, default: [] },
+    cookbook: { type: Array, required: false, default: [] },
 
     username: { type: String, required: true, maxlength: 32 },
-    email: { type: String, required: true, unique: true },
+    email: { type: String, required: false, unique: true },
+    password: { type: String, required: true },
+
+    creationIP: { type: String, required: false },
+    lastIP: { type: String, required: false },
 
     token: { type: String, required: true, unique: true }
 });
@@ -41,5 +51,6 @@ const User = Mongoose.model<UserDoc>(`User`, UserSchema);
 
 export {
     User,
-    type UserDoc
+    type UserDoc,
+    UserRank
 };

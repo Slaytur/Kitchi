@@ -2,16 +2,18 @@ import passport from 'passport';
 import passportLocal from 'passport-local';
 
 import bcrypt from 'bcrypt';
+import crypto from 'crypto';
 
 import { User } from '../models/user.model';
 
 import log from '../utils/log';
 import { string } from '../utils/randomizer';
+import { createID } from '@boatgame-io/id-utils';
 
 // Strategy.
 passport.use(`login`, new passportLocal.Strategy({
-    usernameField: `login-username`,
-    passwordField: `login-password`
+    usernameField: `username`,
+    passwordField: `password`
 }, (username, password, done) => {
     User.findOne({
         username: username.toLowerCase()
@@ -21,7 +23,7 @@ passport.use(`login`, new passportLocal.Strategy({
         // Login a user.
         bcrypt.compare(password, user.password, (err, isMatch) => {
             if (err !== undefined) return log(`red`, err?.stack ?? ``);
-            else if (isMatch) {
+            else if (isMatch === true) {
                 user.token = string(64);
                 void user.save();
 
@@ -33,29 +35,27 @@ passport.use(`login`, new passportLocal.Strategy({
 
 // Registration.
 passport.use(`signup`, new passportLocal.Strategy({
-    usernameField: `signup-username`,
-    passwordField: `signup-password`
+    usernameField: `username`,
+    passwordField: `password`
 }, (username, password, done) => {
-    void User.findOne({
-        username
-    }).then(user => {
+    void User.findOne({ username }).then(user => {
         if (user != null) return done(`User already exists`, false);
 
         const signupUser = new User({
-            username: username.toLowerCase(),
-            displayName: username,
-            creationDate: new Date(),
-            password
+            created: new Date(),
+            id: createID(),
+
+            username,
+            token: `n${crypto.randomBytes(32).toString(`hex`)}`
         });
 
         bcrypt.genSalt(10, (err, salt) => {
             if (err != null) return done(err);
-            bcrypt.hash(signupUser.password, salt, (err, hash) => {
+            bcrypt.hash(password, salt, (err, hash) => {
                 if (err !== undefined) return done(err);
 
                 signupUser.password = hash;
-                signupUser.save().catch(err => done(err));
-                done(null, signupUser);
+                signupUser.save().then(() => done(null, signupUser)).catch(err => done(err));
             });
         });
     });
