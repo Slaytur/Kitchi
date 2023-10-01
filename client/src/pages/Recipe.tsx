@@ -35,8 +35,6 @@ class Recipe extends React.Component {
                             Add to Cookbook
                         </button>
                     </div>
-
-                    {/* Repeat the above card structure for a total of 6 cards */}
                     {/* Recipe Card 3 */}
                     <div className="card tw-p-3 tw-flow-root">
                         <h1 className="tw-text-[24px]">Recipe Card</h1>
@@ -65,6 +63,42 @@ class Recipe extends React.Component {
                     </div>
 
                     {/* Recipe Card 6 */}
+                    <div className="card tw-p-3 tw-flow-root">
+                        <h1 className="tw-text-[24px]">Recipe Card</h1>
+                        <p className="tw-mb-60">Description</p>
+                        <button className="tw-w-fit tw-px-2 tw-bg-offwhite tw-py-1 tw-rounded-full tw-float-right">
+                            Add to Cookbook
+                        </button>
+                    </div>
+
+                    {/* Recipe Card 7 */}
+                    <div className="card tw-p-3 tw-flow-root">
+                        <h1 className="tw-text-[24px]">Recipe Card</h1>
+                        <p className="tw-mb-60">Description</p>
+                        <button className="tw-w-fit tw-px-2 tw-bg-offwhite tw-py-1 tw-rounded-full tw-float-right">
+                            Add to Cookbook
+                        </button>
+                    </div>
+
+                    {/* Recipe Card 8 */}
+                    <div className="card tw-p-3 tw-flow-root">
+                        <h1 className="tw-text-[24px]">Recipe Card</h1>
+                        <p className="tw-mb-60">Description</p>
+                        <button className="tw-w-fit tw-px-2 tw-bg-offwhite tw-py-1 tw-rounded-full tw-float-right">
+                            Add to Cookbook
+                        </button>
+                    </div>
+
+                    {/* Recipe Card 9 */}
+                    <div className="card tw-p-3 tw-flow-root">
+                        <h1 className="tw-text-[24px]">Recipe Card</h1>
+                        <p className="tw-mb-60">Description</p>
+                        <button className="tw-w-fit tw-px-2 tw-bg-offwhite tw-py-1 tw-rounded-full tw-float-right">
+                            Add to Cookbook
+                        </button>
+                    </div>
+
+                    {/* Recipe Card 10 */}
                     <div className="card tw-p-3 tw-flow-root">
                         <h1 className="tw-text-[24px]">Recipe Card</h1>
                         <p className="tw-mb-60">Description</p>
