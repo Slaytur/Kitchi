@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/scss/pages/forums.scss";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane, faPlus } from "@fortawesome/free-solid-svg-icons";
 
