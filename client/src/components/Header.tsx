@@ -3,6 +3,7 @@ import React from 'react';
 import Logo from '../assets/img/logos/logo_header.png';
 
 import '../assets/scss/components/header.scss';
+import axios from 'axios';
 
 declare const API_URL: string;
 
@@ -21,7 +22,7 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
 
         this.state = {
             account: {
-                authenticated: true
+                authenticated: false
             }
         };
 
@@ -57,7 +58,7 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                                 <li className={`nav-item dropdown nav-profile-menu${!this.state.account.authenticated ? ` d-none` : ``}`}>
                                     <a href="#" className="nav-link btn" id="profile-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i className="icofont icofont-user-alt-7 tw-me-2"></i>
-                                        <span>{this.state.account.username}DamienVesper</span>
+                                        <span>{this.state.account.username}</span>
                                     </a>
                                     <div className="welcome-string"></div>
                                     <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="profile-dropdown">
@@ -73,12 +74,6 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                                                 <i className="icofont icofont-dashboard tw-mr-1"></i>
                                             Dashboard
                                             </a>
-                                        </li>
-                                        <li>
-                                            {/* <a href="/calendar" className="dropdown-item profile-settings-opt">
-                                            <i className="icofont icofont-calendar tw-mr-1"></i>
-                                            Calendar
-                                        </a> */}
                                         </li>
                                         <li>
                                             <a href="/settings" className="dropdown-item profile-settings-opt">
@@ -104,17 +99,26 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
     };
 
     componentDidMount = (): void => {
-        if (window.location.pathname !== `/`) return;
+        if (window.location.pathname !== `/`) {
+            /**
+             * Update the header to automatically toggle stickiness.
+             */
+            window.onscroll = () => {
+                const nav = this.nav.current;
+                window.scrollY !== nav?.offsetTop
+                    ? nav?.classList.add(`nav-scrolled`)
+                    : nav?.classList.remove(`nav-scrolled`);
+            };
+        }
 
-        /**
-         * Update the header to automatically toggle stickiness.
-         */
-        window.onscroll = () => {
-            const nav = this.nav.current;
-            window.scrollY !== nav?.offsetTop
-                ? nav?.classList.add(`nav-scrolled`)
-                : nav?.classList.remove(`nav-scrolled`);
-        };
+        void axios.get(`${API_URL}/auth/authenticated`, { withCredentials: true }).then(res => {
+            console.log(res.data);
+            this.setState({
+                account: res.data?.authenticated === true
+                    ? { authenticated: true, username: res.data.username }
+                    : { authenticated: false }
+            });
+        });
     };
 }
 

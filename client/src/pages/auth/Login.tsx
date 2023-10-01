@@ -18,7 +18,7 @@ class Login extends React.Component {
         <main className="pg-login">
             <div className="container tw-my-8">
                 <h1 className="text-center my-5">Log In</h1>
-                <div className="card card-body tw-bg-$buff text-dark">
+                <div className="card card-body !tw-bg-$buff text-dark">
                     <form action="/auth/login" method="POST" id="login-form">
                         <div id="login-error" className="alert alert-danger alert-dismissible fade show" role="alert">
                             <span id="login-error-message"></span>
@@ -78,8 +78,8 @@ class Login extends React.Component {
 
                     setTimeout(() => {
                         // TODO: Change to auto-login.
-                        window.location.href = `${window.location.protocol}//${window.location.host}/auth/login`;
-                    }, 1e4);
+                        window.location.href = `${window.location.protocol}//${window.location.host}/dashboard`;
+                    }, 1e3);
                 }
             }).catch(() => {
                 $(`#login-btn`).removeAttr(`disabled`);

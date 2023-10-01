@@ -10,6 +10,16 @@ import { User } from '../models/user.model';
 
 import log from '../utils/log';
 
+passport.serializeUser((user, callback) => {
+    callback(null, user);
+});
+
+passport.deserializeUser((id, callback) => {
+    void User.findById(id, (err: unknown, user: typeof User) => {
+        callback(err, user);
+    });
+});
+
 // Strategy.
 passport.use(`login`, new passportLocal.Strategy({
     usernameField: `username`,
@@ -54,15 +64,5 @@ passport.use(`signup`, new passportLocal.Strategy({
         });
     });
 }));
-
-passport.serializeUser((user, callback) => {
-    callback(null, user);
-});
-
-passport.deserializeUser((id, callback) => {
-    void User.findById(id, (err: unknown, user: typeof User) => {
-        callback(err, user);
-    });
-});
 
 export default passport;
