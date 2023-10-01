@@ -7,8 +7,8 @@
     "build": "tsc",
     "start": "node ./dist/src/index.js --baseURL https://slaytur.warzon.io/api --port 8995",
     "dev": "ts-node ./src/index.ts",
-    "dev:lint": "eslint . --fix --ext .ts",
-    "dev:lint:ci": "eslint . --ext .ts"
+    "lint": "eslint . --fix --ext .ts",
+    "int:ci": "eslint . --ext .ts"
   },
   "engines": {
     "pnpm": ">=8.0.0",
