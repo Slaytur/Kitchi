@@ -15,8 +15,6 @@ interface UserDoc extends Mongoose.Document {
 
     username: string
     email: string
-    discordID: string
-    avatar?: string
 
     creationIP: string
     lastIP: string
@@ -35,8 +33,6 @@ const UserSchema = new Mongoose.Schema({
 
     username: { type: String, required: true, maxlength: 32 },
     email: { type: String, required: true, unique: true },
-    discordID: { type: String, required: true, unique: true },
-    avatar: { type: String, required: false },
 
     token: { type: String, required: true, unique: true }
 });

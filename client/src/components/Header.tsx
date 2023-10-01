@@ -9,7 +9,6 @@ declare const API_URL: string;
 interface HeaderState {
     account: {
         authenticated: boolean
-        avatar?: string
         username?: string
     }
 }

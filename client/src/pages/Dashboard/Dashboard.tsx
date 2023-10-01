@@ -5,14 +5,12 @@ import React from 'react';
 
 import "../../assets/scss/pages/dashboard.scss";
 
-
 // interface UserData {
 //     authenticated: boolean
 
 //     discordID: string
 //     username: string
 //     email: string
-//     avatar: string
 
 //     permissions: {
 //         admin: boolean
