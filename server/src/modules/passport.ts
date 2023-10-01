@@ -1,57 +1,65 @@
-import config from '../../.config/config';
-
 import passport from 'passport';
+import passportLocal from 'passport-local';
 
-import { Strategy as DiscordStrategy } from 'passport-discord';
-import { type VerifyCallback } from 'passport-oauth2';
+import bcrypt from 'bcrypt';
 
 import { User } from '../models/user.model';
-import { createID } from '@boatgame-io/id-utils';
 
-import * as randomizer from '../utils/randomizer';
+import log from '../utils/log';
+import { string } from '../utils/randomizer';
 
-const discordStrategy = new DiscordStrategy({
-    clientID: (process.env.CLIENT_ID as string),
-    clientSecret: (process.env.CLIENT_SECRET as string),
-    callbackURL: `${config.baseURL}/auth/discord`,
-    scope: [`identify`, `email`]
-}, (accessToken: string, refreshToken: string, profile: DiscordStrategy.Profile, callback: VerifyCallback) => {
-    void User.findOne({ discordID: profile.id }).then(userExists => {
-        // Update profile data on login.
-        if (userExists !== null) {
-            userExists.username = profile.username;
-            userExists.email = profile.email as string;
-            userExists.avatar = profile.avatar ?? ``;
+// Strategy.
+passport.use(`login`, new passportLocal.Strategy({
+    usernameField: `login-username`,
+    passwordField: `login-password`
+}, (username, password, done) => {
+    User.findOne({
+        username: username.toLowerCase()
+    }).then(user => {
+        if (user == null) return done(`Incorrect username or password`, false);
 
-            void userExists.save();
+        // Login a user.
+        bcrypt.compare(password, user.password, (err, isMatch) => {
+            if (err !== undefined) return log(`red`, err?.stack ?? ``);
+            else if (isMatch) {
+                user.token = string(64);
+                void user.save();
 
-            return callback(null, userExists);
-        }
+                return done(null, user);
+            } else return done(`Incorrect username / password`, false);
+        });
+    }).catch(err => done(err, false));
+}));
 
-        void User.findOne({ username: profile.username }).then(userExists => {
-            if (userExists !== null) return callback(null, userExists);
+// Registration.
+passport.use(`signup`, new passportLocal.Strategy({
+    usernameField: `signup-username`,
+    passwordField: `signup-password`
+}, (username, password, done) => {
+    void User.findOne({
+        username
+    }).then(user => {
+        if (user != null) return done(`User already exists`, false);
 
-            const user = new User({
-                created: new Date(),
-                id: createID(),
+        const signupUser = new User({
+            username: username.toLowerCase(),
+            displayName: username,
+            creationDate: new Date(),
+            password
+        });
 
-                rank: `USER`,
+        bcrypt.genSalt(10, (err, salt) => {
+            if (err != null) return done(err);
+            bcrypt.hash(signupUser.password, salt, (err, hash) => {
+                if (err !== undefined) return done(err);
 
-                username: profile.username,
-                email: profile.email,
-                discordID: profile.id,
-                avatar: profile.avatar,
-
-                token: randomizer.string(64)
+                signupUser.password = hash;
+                signupUser.save().catch(err => done(err));
+                done(null, signupUser);
             });
-
-            void user.save();
-            return callback(null, user);
         });
     });
-});
-
-passport.use(discordStrategy);
+}));
 
 passport.serializeUser((user, callback) => {
     callback(null, user);

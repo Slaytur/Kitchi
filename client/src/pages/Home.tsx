@@ -73,13 +73,6 @@ class Home extends React.Component {
                 </div>
                 <hr />
             </div>
-
-            {/* <div className="tw-flex">
-                <div>
-                    <h5 className="tw-text-4xl">Cook Smarter,<br />Dine Better</h5>
-                    <p>Kitchi has you covered.</p>
-                </div>
-            </div> */}
         </main>
     );
 
