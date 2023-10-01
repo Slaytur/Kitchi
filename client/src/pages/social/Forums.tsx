@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane, faPlus } from '@fortawesome/free-solid-svg-icons';
 
-import Heart from "../../assets/img/icons/heart.png";
-import Like from "../../assets/img/icons/cookin.png";
+import Heart from '../../assets/img/icons/heart.png';
+import Like from '../../assets/img/icons/cookin.png';
 
-import "../../assets/scss/pages/forums.scss";
+import '../../assets/scss/pages/forums.scss';
 
 declare const API_URL: string;
 /**
@@ -19,16 +19,8 @@ class Forum extends React.Component<Record<string, never>, { isLoggedIn: boolean
                 <div className="body tw-mx-auto tw-top-30">
                     <h1 className="tw-text-6xl tw-mt-5">Forums</h1>
                     <div className="message-send tw-p-5">
-                        <form
-                            action={`${API_URL}/forum/post`}
-                            className="tw-bg-lightgreen tw-p-4 tw-w-11/12 form-control tw-mx-auto tw-border-[#58991F] tw-border-2"
-                        >
-                            <label
-                                htmlFor="create-post"
-                                className="post-label tw-mx-auto"
-                            >
-                                <h2>Talk To The World</h2>
-                            </label>
+                        <form action={`${API_URL}/forum/post`} className="tw-bg-lightgreen tw-p-4 tw-w-11/12 form-control tw-mx-auto tw-border-[#58991F] tw-border-2">
+                            <label htmlFor="create-post" className="post-label tw-mx-auto"><h2>Talk To The World</h2></label>
                             <div className="tw-mb-3">
                                 <br></br>
                                 <textarea
@@ -39,19 +31,11 @@ class Forum extends React.Component<Record<string, never>, { isLoggedIn: boolean
                                     required
                                 />
                                 <div className="tw-w-[98%] tw-bg-[#ecf5e5] tw-py-1 tw-h-11 tw-border-[1px] tw-border-[#9b9b9b]  tw-border-solid tw-mx-auto">
-                                    <a
-                                        title="addimg"
-                                        href=""
-                                        className="btn btn-lg btn-green btn-sign-in tw-py-0 tw-cursor-pointer tw-float-left tw-px-[5px] tw-ml-2"
-                                    >
+                                    <a title="addimg" href="" className="btn btn-lg btn-green btn-sign-in tw-py-0 tw-cursor-pointer tw-float-left tw-px-[5px] tw-ml-2">
                                         <FontAwesomeIcon className="" icon={faPlus} />
                                         <label className="tw-text-[1rem] tw-inline"> image</label>
                                     </a>
-                                    <a
-                                        title="signin"
-                                        href="/forum/post"
-                                        className="btn btn-lg btn-green btn-sign-in tw-py-0 tw-cursor-pointer tw-float-right tw-px-1 tw-mr-3"
-                                    >
+                                    <a title="signin" href="/forum/post" className="btn btn-lg btn-green btn-sign-in tw-py-0 tw-cursor-pointer tw-float-right tw-px-1 tw-mr-3">
                                         <FontAwesomeIcon className="" icon={faPaperPlane} />
                                     </a>
                                 </div>

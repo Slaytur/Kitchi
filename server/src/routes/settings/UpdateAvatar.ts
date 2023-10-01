@@ -8,7 +8,7 @@ router.post(`/`, (req, res) => {
     if (typeof req.body[`display-avatar`] !== `string`) return res.json({ errors: `Please fill out all fields` });
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    void User.findOne({ username: (req.user as any).user.username }).then(user => {
+    void User.findOne({ username: (req.user as any).username }).then(user => {
         if (user === null) return res.json({ errors: `Invalid account data` });
         user.avatar = req.body[`display-avatar`];
 

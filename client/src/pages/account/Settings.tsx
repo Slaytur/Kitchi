@@ -114,7 +114,7 @@ class Settings extends React.Component {
                                 <div className="form-group">
                                     <label htmlFor="profile-picture" className="form-label">Profile Avatar URL</label>
                                     <input type="text" id="display-avatar" name="display-avatar" className="form-control" placeholder="Avatar Image URL" maxLength={1000} />
-                                    <span className="form-text text-dark">(Example: <a href="/assets/img/misc/burger_pfp.png" target="_blank" rel="noreferrer">https://slaytur.warzon.io/assets/img/misc/burger_pfp.png</a>)</span>
+                                    <span className="form-text text-dark">(Example: <a href="/assets/img/misc/burger_pfp.png" target="_blank" rel="noreferrer">https://kitchi.warzon.io/assets/img/misc/burger_pfp.png</a>)</span>
                                 </div>
                                 <input type="submit" name="account-avatar-form" id="account-update-pfp" value="Update Profile Picture" className="btn btn-darken btn-green btn-block mt-3" />
                             </form>

@@ -1,8 +1,9 @@
 import React from 'react';
 
 import axios from 'axios';
+import $ from 'jquery';
 
-import "../../assets/scss/pages/dashboard.scss";
+import '../../assets/scss/pages/dashboard.scss';
 
 declare const API_URL: string;
 
@@ -43,13 +44,13 @@ class Dashboard extends React.Component<Record<never, never>, { recommendedCards
                         {this.state.recommendedCards.map((x, i) => (
                             <div key={`recommended-recipe-${i}`} className="card tw-p-3 tw-flow-root">
                                 <h1 className="tw-text-[24px]">{x.title}</h1>
-                                <p className="tw-mb-60">{x.description}</p>
+                                <p className="tw-mb-5">{x.description}</p>
                                 <button className=" tw-w-fit tw-px-2 tw-bg-offwhite tw-py-1 tw-rounded-full tw-float-right">Add to Cookbook</button>
                             </div>
                         ))}
                     </div>
 
-                    <div className="tw-h-[2px] tw-w-1/2 tw-mx-auto -tw-mt-2 tw-mb-3 tw-opacity-30 tw-bg-offblack"></div>
+                    <div className="tw-h-[2px] tw-w-1/2 tw-mx-auto tw-mt-2 tw-mb-3 tw-opacity-30 tw-bg-offblack"></div>
 
                     {/* Cookbook */}
                     <h1 className="tw-w-full tw-font-bold tw-mt-10 tw-pl-1 tw-text-[40px]">Cookbook</h1>
@@ -78,9 +79,12 @@ class Dashboard extends React.Component<Record<never, never>, { recommendedCards
                                     Add
                                 </button>
                                 <div className="tw-w-full tw-h-fit"></div>
-                                <button className="tw-p-1 tw-rounded-xl tw-bg-offwhite ">
-                                    Upload Image
-                                </button>
+                                <form id="file-upload-form" onClick={(e => e.preventDefault())}>
+                                    <button className="tw-p-1 tw-rounded-xl tw-bg-offwhite" id="image-upload">
+                                        Upload Image
+                                    </button>
+                                    <input type="file" name="image-uploader" id="image-uploader" className="d-none" />
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -90,6 +94,25 @@ class Dashboard extends React.Component<Record<never, never>, { recommendedCards
     );
 
     componentDidMount = async (): Promise<void> => {
+        $(`#image-uploader`).on(`change`, () => {
+            void $.ajax({
+                type: `post`,
+                url: `${API_URL}/dashboard/upload`,
+                data: $(`#file-upload-form`).serialize(),
+                xhrFields: {
+                    withCredentials: true
+                }
+            }).then(res => {
+                this.setState({ ingredients: this.state.ingredients.concat(res.data.join(`,`)) });
+            });
+        });
+
+        $(`#image-upload`).on(`click`, () => {
+            console.log(`clicked`);
+
+            $(`#image-uploader`).click();
+        });
+
         void axios
             .get(`${API_URL}/auth/authenticated`, { withCredentials: true })
             .then((res) => {
@@ -102,7 +125,7 @@ class Dashboard extends React.Component<Record<never, never>, { recommendedCards
                 )
             );
 
-        void axios.get(`${API_URL}/account/dashboarddata`, { withCredentials: true }).then(res => {
+        void axios.get(`${API_URL}/dashboard/data`, { withCredentials: true }).then(res => {
             this.setState({
                 recommendedCards: res.data.recommendedCards ?? [],
                 cookbook: res.data.cookbook ?? [],

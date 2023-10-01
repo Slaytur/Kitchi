@@ -1,27 +1,34 @@
 import Mongoose from 'mongoose';
-import type { Snowflake } from '@boatgame-io/id-utils';
 
 interface RecipeDoc extends Mongoose.Document {
-    created: Date
-    id: Snowflake
-
-    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-    ingredients: Record<any, any>
-    steps: string[]
+    name: string
+    id: number
+    minutes: number
+    contributor_id: number
+    tags: number
+    nutrition: number[]
+    n_steps: number
+    steps: number
+    description: string
+    ingredients: string
+    n_ingredients: number
 }
 
 const RecipeSchema = new Mongoose.Schema({
-    created: { type: Date, required: true },
-    id: { type: String, required: true, unique: true },
-
-    name: { type: String, required: true },
-    description: { type: String, required: false, default: `` },
-
-    ingredients: { type: Object, required: false, default: {} },
-    steps: { type: Array, required: false, default: [] }
+    name: { type: String, required: false },
+    id: { type: Number, required: false },
+    minutes: { type: Number, required: false },
+    contributor_id: { type: Number, required: false },
+    tags: { type: Number, required: false },
+    nutrition: { type: Array, required: false },
+    n_steps: { type: Number, required: false },
+    steps: { type: Number, required: false },
+    description: { type: String, required: false },
+    ingredients: { type: String, required: false },
+    n_ingredients: { type: Number, required: false }
 });
 
-const Recipe = Mongoose.model<RecipeDoc>(`Recipe`, RecipeSchema);
+const Recipe = Mongoose.model<RecipeDoc>(`Recipes`, RecipeSchema);
 
 export {
     Recipe,

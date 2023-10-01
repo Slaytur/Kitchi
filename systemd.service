@@ -3,7 +3,7 @@ Description=Custom Node.js server.
 
 [Service]
 Type=simple
-WorkingDirectory=/opt/Slaytur-v2
+WorkingDirectory=/opt/Ktchi
 ExecStart=/usr/bin/pnpm start:server
 
 [Install]
