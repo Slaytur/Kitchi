@@ -6,28 +6,24 @@ header {
     nav {
         background: $lightgreen;
         transition: 0.3s;
-        width:100%;
 
         .navbar-brand img {
             transition: 0.5s;
         }
-
 
         .navbar-brand img:hover {
             transform: rotate(45deg);
         }
 
         .container-fluid {
-            width:100%;
             background: $lightgreen;
         }
-        
 
         @media only screen and (min-width: 75rem) {
             position: fixed !important;
-            width: 120%;
+            width: 100%;
             max-height: 60px;
-            
+
             .container-fluid {
                 background: transparent;
             }
@@ -35,14 +31,6 @@ header {
             &.nav-scrolled {
                 background: $white;
                 box-shadow: 0 0 3px #00000040;
-            }
-        }
-        @media only screen and (max-width: 990px) {
-            .navbar-collapse{
-                margin-left: -30%;
-                background-color:#ff44ef40;
-                margin-right: 130%
-    
             }
         }
     }
