@@ -8,6 +8,10 @@
     border-bottom-left-radius: 30px;
 
 }
+.card{
+    min-width: fit-content;
+    width: 500px;
+}
 
 .dash-container {
     padding: 8px;
@@ -47,6 +51,18 @@
 
 .dash-pictures {
     flex: 1;
+}
+.ingredient{
+    padding-top: 1px;
+    padding-top: 1px;
+    min-width: fit-content;
+    margin-left: 8px;
+    margin-right: 8px;
+    display:  block;
+    width: fit-content;
+    height:fit-content;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 @media only screen and (min-width: 75rem) {
