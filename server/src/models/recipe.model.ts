@@ -5,8 +5,9 @@ interface RecipeDoc extends Mongoose.Document {
     created: Date
     id: Snowflake
 
-    ingredients: Record<any, any>;
-    steps: Array<string>
+    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+    ingredients: Record<any, any>
+    steps: string[]
 }
 
 const RecipeSchema = new Mongoose.Schema({

@@ -147,7 +147,7 @@ class Settings extends React.Component {
         void axios.get(`${API_URL}/settings/get`, { withCredentials: true }).then(res => {
             if (res.data?.authenticated !== true) return;
 
-            $(`#skill-level`).val(res.data.skillLevel);
+            $(`#skill-level`).val(res.data.settings.skillLevel);
 
             const interestNodes: NodeList = document.querySelectorAll(`#food-interests-form input[type=checkbox]`);
             const restrictionNodes = document.querySelectorAll(`#dietary-restrictions-form input[type=checkbox]`);
