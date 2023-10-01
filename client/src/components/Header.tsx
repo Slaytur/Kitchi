@@ -121,7 +121,7 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                     ? { authenticated: true, username: res.data.username }
                     : { authenticated: false }
             });
-        });
+        }).catch(() => console.error(`[ACCOUNT SERVER]: Could not determine login status.`));
     };
 }
 
