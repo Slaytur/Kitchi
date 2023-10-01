@@ -99,7 +99,7 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
     };
 
     componentDidMount = (): void => {
-        if (window.location.pathname !== `/`) {
+        if (window.location.pathname === `/`) {
             /**
              * Update the header to automatically toggle stickiness.
              */
