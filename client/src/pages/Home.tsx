@@ -41,19 +41,19 @@ class Home extends React.Component {
 
             <div className="virtual-sous-chef-intro">
                 <h2 className="tw-text-4xl">Your Virtual Sous Chef</h2>
-                <div className="tw-mt-5 container">
-                    <div className="card">
-                        <div className="card-body tw-bg-transparent">
+                <div className="tw-mt-5 tw-mx-auto tw-w-11/12">
+                    <div className="icard tw-float-left">
+                        <div className="card-body tw-mx-auto tw-bg-transparent">
                             <h5 className="card-title tw-text-2xl tw-font-bold">AI-Powered Food Recognition</h5>
                         </div>
                     </div>
-                    <div className="card tw-mx-5">
-                        <div className="card-body tw-bg-transparent">
+                    <div className="icard tw-mx-auto tw-min-h-min">
+                        <div className="card-body tw-mx-auto tw-bg-transparent">
                             <h5 className="card-title tw-text-2xl tw-font-bold">Intelligent Recipe Recommender</h5>
                         </div>
                     </div>
-                    <div className="card">
-                        <div className="card-body tw-bg-transparent">
+                    <div className="icard tw-float-right">
+                        <div className="card-body tw-mx-auto tw-bg-transparent">
                             <h5 className="card-title tw-text-2xl tw-font-bold">Your Own Personalized Cookbook</h5>
                         </div>
                     </div>
@@ -65,7 +65,7 @@ class Home extends React.Component {
                 <hr className="tw-text-white" />
                 <div className="tw-w-100 tw-h-[170px] tw-w-[300px] tw-border-none tw-mx-auto">
                     <div className="card tw-position-absolute">
-                        <div className="card-body">
+                        <div className="card-body tw-pb-2">
                             <h5 className="card-title tw-text-2xl tw-font-bold">170K+</h5>
                             <p>different recipes</p>
                         </div>
