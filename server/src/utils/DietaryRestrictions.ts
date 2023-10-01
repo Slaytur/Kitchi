@@ -6,7 +6,7 @@ const router = Router();
 router.post(`/`, (req, res) => {
     if (!req.isAuthenticated()) return res.redirect(`/login`);
 
-    if (!req.body[`display-name`] || typeof req.body[`display-name`] !== `string`) return res.json({ errors: `Please fill out all fields` });
+    if (typeof req.body[`display-name`] !== `string`) return res.json({ errors: `Please fill out all fields` });
     if (req.body[`display-name`].length > 20) return res.json({ errors: `Your display cannot be over 20 characters` });
     if (req.body[`display-name`].toLowerCase() !== (<any>req).user.username) return res.json({ errors: `Your display name must match your username, in spelling` });
 
@@ -15,7 +15,7 @@ router.post(`/`, (req, res) => {
         user.displayName = req.body[`display-name`];
 
         void user.save()
-            .then(() => res.json({ success: `Succesfully updated display name.` }))
+            .then(() => res.redirect(`/settings`))
             .catch(() => res.json({ errors: `Invalid account data` }));
     });
 });
