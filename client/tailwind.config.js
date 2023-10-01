@@ -1,3 +1,5 @@
+// const { defaultColors } = require(`tailwindcss/defaultTheme`);
+
 module.exports = {
     mode: `jit`,
     content: [
@@ -6,6 +8,7 @@ module.exports = {
     prefix: `tw-`,
     theme: {
         extend: {},
+        // colors: Object.assign(defaultColors, {
         colors: {
             offblack: `#1e1e1e`,
             redorange: `#da6525`,
@@ -14,7 +17,7 @@ module.exports = {
             buff: `#c8a28d`,
             sand: `#eacbaa`,
             offwhite: `#f9f2de`
-        }
+        } // )
     },
     plugins: []
 };
