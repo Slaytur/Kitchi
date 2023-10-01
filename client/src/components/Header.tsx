@@ -54,6 +54,12 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                                 <li className="nav-item">
                                     <a href="/forums" className={`nav-link ${window.location.pathname === `/forums` ? `active disabled` : ``}`}>Forums</a>
                                 </li>
+                                <li className="nav-item">
+                                    <a href="/timer" className={`nav-link ${window.location.pathname === `/timer` ? `active disabled` : ``}`}>Timer</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a href="/recipie" className={`nav-link ${window.location.pathname === `/recipie` ? `active disabled` : ``}`}>Recipies</a>
+                                </li>
                             </ul>
                             <form className="d-flex tw-ms-1" role="search">
                                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
@@ -64,13 +70,13 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                                 <li className={`nav-item dropdown nav-profile-menu${!this.state.account.authenticated ? ` d-none` : ``}`}>
                                     <a href="#" className="nav-link btn" id="profile-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src={this.state.account.avatar} alt="Your account avatar" className="tw-h-[24px] tw-rounded-full tw-me-2" />
+                                        <img src={this.state.account.avatar} alt="Your account avatar" className="tw-h-[24px] tw-whitespace-nowrap tw-rounded-full tw-me-2" />
 
                                         <span>{this.state.account.displayName ?? this.state.account.username}</span>
                                         <i className={`icofont icofont-caret-${this.state.accountDropdownState ? `up` : `down`} tw-ms-2`}></i>
                                     </a>
                                     <div className="welcome-string"></div>
-                                    <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="profile-dropdown">
+                                    <ul className="dropdown-menu dropdown-menu-end tw-text-white tw-bg-[#aad287f6]" aria-labelledby="profile-dropdown">
                                         <li>
                                             <a href="/profile" className="dropdown-item profile-settings-opt">
                                                 <i className="icofont icofont-people tw-mr-1"></i>
