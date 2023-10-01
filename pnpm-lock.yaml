@@ -216,6 +216,9 @@ importers:
       '@boatgame-io/id-utils':
         specifier: ^0.0.3
         version: 0.0.3
+      axios:
+        specifier: ^1.5.1
+        version: 1.5.1
       bcrypt:
         specifier: ^5.1.1
         version: 5.1.1

@@ -9,7 +9,7 @@ interface UserDoc extends Mongoose.Document {
     rank: `USER` | `EXPERT` | `ADMIN`
 
     pantry: string[]
-    cookbook: string[]
+    cookbook: Array<{ name: string, description: string }>
 
     username: string
     displayName: string
