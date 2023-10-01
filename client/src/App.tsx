@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 
 import Home from './pages/Home';
 import Error404 from './pages/404';
-import Timer from './pages/Timer';
+
 
 import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
@@ -28,6 +28,7 @@ import './assets/scss/index.scss';
 import 'bootstrap';
 import Recipe from './pages/Recipe';
 import Faq from './pages/Faq';
+import Timer from './pages/Timer';
 
 class App extends React.Component {
     render = (): React.ReactNode => (
