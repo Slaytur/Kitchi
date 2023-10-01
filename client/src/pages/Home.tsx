@@ -1,6 +1,6 @@
 import React from 'react';
 
-import $ from 'jquery';
+// import $ from 'jquery';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
@@ -9,7 +9,7 @@ import LogoImg from '../assets/img/logos/kitchi.png';
 
 import '../assets/scss/pages/home.scss';
 
-class Home extends React.Component<Record<string, never>, { isLoggedIn: boolean }> {
+class Home extends React.Component {
     render = (): React.ReactNode => (
         <main className="tw-text-center pg-home">
             <div className="splash tw-flex tw-pt-8">
@@ -19,12 +19,12 @@ class Home extends React.Component<Record<string, never>, { isLoggedIn: boolean 
                             <h1 className="tw-text-9xl">Kitchi</h1>
                             <p className="desc tw-my-4">For all your cooking needs.</p>
                             <div className="tw-text-white">
-                                <a href="/auth/login" className="btn btn-lg btn-darken btn-green btn-sign-in tw-me-1">
-                                    <span className="me-1">Sign In</span>
+                                <a href="/auth/signup" className="btn btn-lg btn-darken btn-green btn-sign-in tw-me-1">
+                                    <span className="me-1">Sign Up</span>
                                     <FontAwesomeIcon icon={faSignInAlt} />
                                 </a>
-                                <a href="/auth/signup" className="btn btn-lg btn-darken btn-green btn-sign-in tw-ms-1">
-                                    <span className="me-1">Register</span>
+                                <a href="/auth/login" className="btn btn-lg btn-darken btn-green btn-sign-in tw-ms-1">
+                                    <span className="me-1">Login</span>
                                     <FontAwesomeIcon icon={faSignInAlt} />
                                 </a>
                             </div>
