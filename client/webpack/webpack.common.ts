@@ -121,8 +121,7 @@ const config: Configuration = {
     plugins: [
         new Webpack.ProgressPlugin(),
         new Webpack.DefinePlugin({
-            APP_VERSION: `"${version}"`,
-            CLIENT_ID: `"${process.env.CLIENT_ID ?? ``}"`
+            APP_VERSION: `"${version}"`
         }),
         new WebpackManifestPlugin({}),
         new HTMLWebpackPlugin({
