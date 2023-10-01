@@ -62,7 +62,7 @@ class Dashboard extends React.Component {
                     <div className=" tw-grid-cols-1 tw-grid shadow tw-max-h-48 tw-gap-y-2 tw-p-4">
                         <button className=" tw-flex tw-w-full tw-rounded-full tw-align-middle  tw-px-8 tw-border-none tw-border-[2px] tw-border-[#2828289d] ">
                             <p className=" tw-font-bold my-auto">Recipe Name</p>
-                            <p className=" my-auto tw-ml-3 ">Description</p>
+                            <p className=" my-auto tw-ml-3">Description</p>
                         </button>
                         <button className=" tw-flex tw-w-full tw-rounded-full tw-align-middle  tw-px-8 tw-border-none tw-border-[2px] tw-border-[#2828289d] ">
                             <p className=" tw-font-bold my-auto">Recipe Name</p>
