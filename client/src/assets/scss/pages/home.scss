@@ -1,6 +1,10 @@
 @import '../palette.scss';
 
 .pg-home {
+    & > svg {
+        display: block;
+    }
+
     .splash {
         background: $lightgreen;
 
@@ -8,7 +12,7 @@
             display: none;
         }
 
-        &> div {
+        & > div {
             padding-bottom: 2rem;
         }
     }
@@ -25,49 +29,19 @@
         }
     }
 
-    // .btn-sign-in:hover {
-    //     color: #ffffff !important;
+    .virtual-sous-chef-intro {
+        & > div {
+            flex-direction: column;
 
-    //     background-color: #000000 !important;
-    //     border-color: #000000 !important;
-    // }
-    .icard{
-        --bs-card-spacer-y: 1rem;
-        --bs-card-spacer-x: 1rem;
-        --bs-card-title-spacer-y: 0.5rem;
-        --bs-card-title-color: ;
-        --bs-card-subtitle-color: ;
-        --bs-card-border-width: var(--bs-border-width);
-        --bs-card-border-color: var(--bs-border-color-translucent);
-        --bs-card-border-radius: var(--bs-border-radius);
-        --bs-card-box-shadow: ;
-        --bs-card-inner-border-radius: calc(var(--bs-border-radius) - (var(--bs-border-width)));
-        --bs-card-cap-padding-y: 0.5rem;
-        --bs-card-cap-padding-x: 1rem;
-        --bs-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.03);
-        --bs-card-cap-color: ;
-        --bs-card-height: ;
-        --bs-card-color: ;
-        --bs-card-bg: var(--bs-body-bg);
-        --bs-card-img-overlay-padding: 1rem;
-        --bs-card-group-margin: 0.75rem;
-        position: relative;
-        display:inline-flex;
-        flex-direction: column;
-        min-width: 0;
-        max-width:30%;
-        width:30%;  
-        height: var(--bs-card-height);
-        color: var(--bs-body-color);
-        word-wrap: break-word;
-        background-color: var(--bs-body-bg);
-        background-color: var(--bs-card-bg);
-        background-clip: border-box;
-        border: var(--bs-border-width) solid var(--bs-border-color-translucent);
-        border: var(--bs-card-border-width) solid var(--bs-card-border-color);
-        border-radius: var(--bs-border-radius);
-        border-radius: var(--bs-card-border-radius);
+            & > div > img {
+                padding: 1rem;
+                // width: 256px;
+                background: $buff;
+                border-radius: 5rem;
+            }
+        }
     }
+
     
     @media only screen and (min-width: 60rem) {
         .splash {
@@ -78,25 +52,17 @@
                 display: block;
             }
 
-            &> div {
+            & > div {
                 display: flex;
                 padding-top: 2rem;
             }
         }
 
-        .virtual-sous-chef-intro > div {
-            margin-bottom: 20px;
-        }
-    }
-    @media only screen and (max-width: 60rem) {
-        .virtual-sous-chef-intro{
-            margin-top: 30%;
-        }
-        .icard{
-            width:100%;
-            margin-bottom: 6%;
-            max-width:100%;
-            height: 60%;
+        .virtual-sous-chef-intro {
+            & > div {
+                flex-direction: row;
+                margin-bottom: 20px;
+            }
         }
     }
 }

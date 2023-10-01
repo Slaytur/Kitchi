@@ -7,13 +7,13 @@ module.exports = {
     theme: {
         extend: {},
         colors: {
-            $black: `#1e1e1e`,
-            $orange: `#da6525`,
-            $green: `#58991f`,
-            $lightgreen: `#b2d481`,
-            $buff: `#c8a28d`,
-            $sand: `#eacbaa`,
-            $white: `#f9f2de`
+            offblack: `#1e1e1e`,
+            redorange: `#da6525`,
+            darkgreen: `#58991f`,
+            lightgreen: `#b2d481`,
+            buff: `#c8a28d`,
+            sand: `#eacbaa`,
+            offwhite: `#f9f2de`
         }
     },
     plugins: []

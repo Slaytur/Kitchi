@@ -20,7 +20,7 @@ import "../../assets/scss/pages/dashboard.scss";
 class Dashboard extends React.Component {
     render = (): React.ReactNode => (
         <main className="tw-text-center tw-flex tw-w-screen tw-h-fit">
-            <div className=' tw-flex tw-pl-3 tw-h-full tw-w-min tw-left-0 tw-bg-$white'>
+            <div className=' tw-flex tw-pl-3 tw-h-full tw-w-min tw-left-0 tw-bg-offwhite'>
                 <div className=' tw-items-center tw-pt-24 tw-w-full tw-text-lg '>
                     <p className='tw-bg-white tw-pr-3 tw-pl-2 leftrounded tw-py-1 tw-w-full'>Pantry</p>
                     <p className='tw-bg-white tw-pr-3 tw-pl-2 leftrounded tw-py-1 tw-whitespace-nowrap'>Cook Book</p>

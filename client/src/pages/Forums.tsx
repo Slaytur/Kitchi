@@ -2,7 +2,8 @@ import React from "react";
 import "../assets/scss/pages/register.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
-import Heart from "../assets/img/misc/heart.png";
+
+import Heart from "../assets/img/icons/heart.png";
 
 // import "client/src/assets/scss/pages/forums.scss";
 declare const API_URL: string;
@@ -21,7 +22,7 @@ Record<string, never>,
                     <div className="message-send tw-p-5">
                         <form
                             action={`${API_URL}/forum/post`}
-                            className="tw-bg-$lightgreen tw-p-4 tw-w-11/12 form-control tw-mx-auto tw-border-[#58991F] tw-border-2"
+                            className="tw-bg-lightgreen tw-p-4 tw-w-11/12 form-control tw-mx-auto tw-border-[#58991F] tw-border-2"
                         >
                             <div className="tw-mb-3">
                                 <label
