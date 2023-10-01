@@ -45,7 +45,7 @@ const UserSchema = new Mongoose.Schema({
 
     email: { type: String, required: false, unique: true },
     password: { type: String, required: true },
-    avatar: { type: String, required: false, default: `https://slaytur.warzon.io/assets/img/misc/burger_pfp.png` },
+    avatar: { type: String, required: false, default: `/assets/img/misc/burger_pfp.png` },
 
     creationIP: { type: String, required: false },
     lastIP: { type: String, required: false },

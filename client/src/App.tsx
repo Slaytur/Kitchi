@@ -17,7 +17,7 @@ import Signup from './pages/auth/Signup';
 
 import Dashboard from './pages/account/Dashboard';
 import Settings from './pages/account/Settings';
-// import Customize from './pages/Customize';
+import Customize from './pages/account/Customize';
 
 import Forums from './pages/social/Forums';
 
@@ -43,7 +43,7 @@ class App extends React.Component {
                     {/* Account */}
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/settings" element={<Settings />} />
-                    {/* <Route path="/customize" element={<Customize />} /> */}
+                    <Route path="/customize" element={<Customize />} />
 
                     {/* Social */}
                     <Route path="/forums" element={<Forums />} />
