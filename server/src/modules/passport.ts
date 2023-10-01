@@ -15,9 +15,7 @@ passport.serializeUser((user, callback) => {
 });
 
 passport.deserializeUser((id, callback) => {
-    void User.findById(id, (err: unknown, user: typeof User) => {
-        callback(err, user);
-    });
+    void User.findById(id).then(user => callback(null, user)).catch(err => callback(err, null));
 });
 
 // Strategy.
@@ -31,7 +29,7 @@ passport.use(`login`, new passportLocal.Strategy({
         // Login a user.
         bcrypt.compare(password, user.password, (err, isMatch) => {
             if (err != null) return log(`red`, err?.stack ?? ``);
-            else if (isMatch === true) return done(null, user);
+            else if (isMatch) return done(null, user);
             else return done(`Incorrect username / password`, false);
         });
     }).catch(err => done(err, false));

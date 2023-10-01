@@ -112,7 +112,6 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
         }
 
         void axios.get(`${API_URL}/auth/authenticated`, { withCredentials: true }).then(res => {
-            console.log(res.data);
             this.setState({
                 account: res.data?.authenticated === true
                     ? { authenticated: true, username: res.data.username }

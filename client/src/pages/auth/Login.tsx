@@ -87,7 +87,7 @@ class Login extends React.Component {
 
                 this.hcaptcha.current?.resetCaptcha();
 
-                $(`#login-error-message`).text(`There was an issue registering your account.`);
+                $(`#login-error-message`).text(`There was an issue logging into your account.`);
                 console.error(`[ACCOUNT SERVER]: UNREACHABLE`);
             });
         });

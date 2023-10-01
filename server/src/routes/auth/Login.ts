@@ -36,6 +36,7 @@ router.post(`/`, (req: Request<Record<string, never>, { success?: string, errors
         if (user == null) return res.json({ errors: `User does not exist.` });
 
         req.logIn(user, err => {
+            req.session.save();
             if (err != null) {
                 log(`red`, err);
                 return res.json({ errors: `There was an error processing your request.` });
