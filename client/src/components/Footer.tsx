@@ -37,7 +37,7 @@ class Footer extends React.Component {
                         </ul>
                     </div>
 
-                    <div className="col-md-5 offset-md-1 mb-3 tw-bg-white tw-bg-dark tw-bg-red">
+                    <div className="col-md-5 offset-md-1 mb-3">
                         <form>
                             <h5>Subscribe to our newsletter</h5>
                             <p>Monthly digest of what&apos;s new and exciting from us.</p>
