@@ -15,7 +15,7 @@ class Footer extends React.Component {
                         <h5>Info</h5>
                         <ul className="nav flex-column">
                             <li className="nav-item mb-2"><a href="/" className="nav-link p-0 text-body-secondary">Home</a></li>
-                            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">About</a></li>
+                            <li className="nav-item mb-2"><a href="/about" className="nav-link p-0 text-body-secondary">About</a></li>
                             <li className="nav-item mb-2"><a href="/faq" className="nav-link p-0 text-body-secondary">FAQ</a></li>
                         </ul>
                     </div>
@@ -23,9 +23,9 @@ class Footer extends React.Component {
                     <div className="col-6 col-md-2 mb-3">
                         <h5>Account</h5>
                         <ul className="nav flex-column">
-                            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Dashboard</a></li>
-                            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Forums</a></li>
-                            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Settings</a></li>
+                            <li className="nav-item mb-2"><a href="/dashboard" className="nav-link p-0 text-body-secondary">Dashboard</a></li>
+                            <li className="nav-item mb-2"><a href="/forums" className="nav-link p-0 text-body-secondary">Forums</a></li>
+                            <li className="nav-item mb-2"><a href="/settings" className="nav-link p-0 text-body-secondary">Settings</a></li>
                         </ul>
                     </div>
 
