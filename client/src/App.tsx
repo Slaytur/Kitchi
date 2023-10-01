@@ -50,7 +50,6 @@ class App extends React.Component {
                     {/* Social */}
                     <Route path="/forums" element={<Forums />} />
 
-
                     {/* 404 Handler */}
                     <Route path="/*" element={<Error404 />} />
                 </Routes>
