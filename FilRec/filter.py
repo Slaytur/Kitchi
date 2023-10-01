@@ -31,7 +31,7 @@ def recipe_id(hits):
     for i in range(0, len(hits)):
         if(hits[i] != 0):
             re_li.append((hits[i], recipeids[i]))
-            re_li.sort()
+            re_li.sort(reverse=True)
             return re_li
 
 #access userdata
