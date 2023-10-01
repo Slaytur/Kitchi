@@ -19,6 +19,10 @@ header {
             background: $lightgreen;
         }
 
+        .dropdown-item:hover:not(:active) {
+            background: #cccccc;
+        }
+
         @media only screen and (min-width: 75rem) {
             position: fixed !important;
             width: 100%;
