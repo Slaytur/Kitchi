@@ -15,10 +15,11 @@ import Error404 from './pages/404';
 import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 
-// import Register from './pages/Register';
-import Forums from './pages/social/Forums';
-
 import Dashboard from './pages/account/Dashboard';
+import Settings from './pages/account/Settings';
+// import Customize from './pages/Customize';
+
+import Forums from './pages/social/Forums';
 
 import './assets/css/icofont/icofont.min.css';
 import './assets/scss/index.scss';
@@ -32,13 +33,22 @@ class App extends React.Component {
             <Router>
                 <Routes>
                     <Route path="/" element={<Home />} />
+
                     {/* Authentication */}
                     <Route path="/auth">
                         <Route path="/auth/signup" element={<Signup />} />
                         <Route path="/auth/login" element={<Login />} />
                     </Route>
+
+                    {/* Account */}
                     <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/settings" element={<Settings />} />
+                    {/* <Route path="/customize" element={<Customize />} /> */}
+
+                    {/* Social */}
                     <Route path="/forums" element={<Forums />} />
+
+                    {/* 404 Handler */}
                     <Route path="/*" element={<Error404 />} />
                 </Routes>
             </Router>
