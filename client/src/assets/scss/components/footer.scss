@@ -2,4 +2,8 @@
 
 footer {
     box-shadow: 0 0 5px 0 #888;
+    
+    .footer-darken:hover {
+        filter: brightness(0%) !important;
+    }
 }
