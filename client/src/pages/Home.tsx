@@ -33,7 +33,7 @@ class Home extends React.Component {
                         </div>
                     </div>
                     <div className="splash-left tw-float-right">
-                        <img className="tw-w-[400px] tw-h-full" src={LogoImg} />
+                        <img title="logo" className="tw-w-[400px] tw-h-full" src={LogoImg} />
                     </div>
                 </div>
             </div>
