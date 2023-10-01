@@ -1,5 +1,5 @@
 import Mongoose from 'mongoose';
-import { type Snowflake } from '@boatgame-io/id-utils';
+import type { Snowflake } from '@boatgame-io/id-utils';
 
 interface UserDoc extends Mongoose.Document {
     created: Date
