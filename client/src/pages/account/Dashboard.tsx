@@ -76,6 +76,64 @@ class Dashboard extends React.Component {
                     </button>
                 </div>
 
+                {/* Pantry */}
+
+                <h1 className='tw-w-full tw-font-bold tw-mt-10 tw-pl-1 tw-text-[40px]'>Pantry</h1>
+                <div className='tw-flex tw-w-full'>
+                    <div className=' tw-w-full tw-grid-cols-6 tw-whitespace-nowrap tw-overflow-scroll tw-scroll-smooth tw-grid shadow  tw-py-2 tw-max-h-48 tw-gap-y-2'>
+                        <p className='tw-py-1 tw-w-fit tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                        <p className='tw-py-1 tw-px-2'> - Ingredient</p>
+                    </div>
+                    <div className=' tw-p-4'>
+                        <p className='tw-w-full tw-text-center tw-mr-3 tw-text-xl'>Add</p>
+                        <input type='text'></input>
+                        <div className='tw-flex tw-gap-x-2 tw-mx-auto tw-my-3 tw-whitespace-nowrap tw-w-full'>
+                            <button className='tw-p-1 tw-rounded-xl tw-bg-offwhite tw-w-full'>Add</button>
+                            <div className='tw-w-full tw-h-fit'></div>
+                            <button className='tw-p-1 tw-rounded-xl tw-bg-offwhite '>Upload Image</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </main>
     );
