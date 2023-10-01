@@ -104,7 +104,7 @@ class Timer extends Component<Record<string, unknown>, TimerState> {
             settingMinutes,
             settingSeconds
         } = this.state;
-        const timerTypeText = isCountingDown ? `Countdown Timer` : `Regular Timer`;
+        const timerTypeText = isCountingDown ? `Timer` : `Stopwatch`;
 
         return (
             <div className="tw-bg-[#aadc9f7b] tw-p-4 tw-rounded-lg tw-shadow-md">
