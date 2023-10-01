@@ -5,7 +5,6 @@ import React from 'react';
 
 import "../../assets/scss/pages/dashboard.scss";
 
-
 // interface UserData {
 //     authenticated: boolean
 
@@ -37,7 +36,6 @@ class Dashboard extends React.Component {
                         <p className=' tw-mb-60'> Description </p>
                     </div>
 
-
                     <div className='card tw-p-3'>
                         <h1>Recipie Card</h1>
                         <p className=' tw-mb-60'> Description </p>
@@ -50,8 +48,6 @@ class Dashboard extends React.Component {
                         <h1>Recipie Card</h1>
                         <p className=' tw-mb-60'> Description </p>
                     </div>
-
-
 
                 </div>
             </div>
