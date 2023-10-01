@@ -2,7 +2,7 @@
 import { Router } from 'express';
 import axios from 'axios';
 
-import { User } from '../models/user.model';
+import { User } from '../../models/user.model';
 
 const router = Router();
 
