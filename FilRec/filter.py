@@ -1,10 +1,15 @@
-import pandas as pd
 from flashtext import KeywordProcessor
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pymongo import MongoClient
+from dotenv import load_dotenv
+import pandas as pd
 import json
+import os
+
+load_dotenv()
+
 #connect to db
-client = MongoClient("mongodb://slaytur:59d3SYjuZIo6n34FCONoI8ZihCVBs7qR@207.225.26.215:27017/slaytur?authSource=admin&retryWrites=true&w=majority") 
+client = MongoClient(os.getenv('MONGO_URI')) 
 
 #filrecalg
 recipe_data = pd.read_csv("FilRec\dataset\RAW_recipes.csv")
