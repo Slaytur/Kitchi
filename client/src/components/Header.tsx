@@ -55,7 +55,7 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                                     <a href="/forums" className={`nav-link ${window.location.pathname === `/forums` ? `active disabled` : ``}`}>Forums</a>
                                 </li>
                             </ul>
-                            <form className="d-flex tw-ms-1" role="search">
+                            <form className="d-flex tw-ms-1" role="search" id="search">
                                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                                 <button className="btn btn-darken btn-green" type="submit">Search</button>
                             </form>
