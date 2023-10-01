@@ -25,7 +25,7 @@ def filrec(pref):
     return hits
 #access userdata
 def getPref(userID):
-    pref=client['alma']['users'].find({"id" : userID})
+    pref=client['slaytur']['users'].find({"id" : userID})
     return pref
 
 def giveRecipe(userID):
@@ -39,4 +39,3 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         print(json.dumps(giveRecipe(self.headers['userid'])))
 httpd = HTTPServer(('', 8000), SimpleHTTPRequestHandler)
 httpd.serve_forever()
-    

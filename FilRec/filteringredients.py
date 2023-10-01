@@ -15,6 +15,7 @@ client = MongoClient(os.getenv('MONGO_URI'))
 recipe_data = pd.read_csv("FilRec\dataset\RAW_recipes.csv")
 ingredients = recipe_data['ingredients']
 tags= recipe_data['tags']
+
 def filrec(pref):
     kp = KeywordProcessor()
     for i in pref:
@@ -25,7 +26,7 @@ def filrec(pref):
     return hits
 #access userdata
 def getPref(userID):
-    pref=client['alma']['users'].find({"id" : userID})
+    pref=client['slaytur']['users'].find({"id" : userID})
     return pref
 
 def giveRecipe(userID):
