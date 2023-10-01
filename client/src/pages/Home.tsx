@@ -44,15 +44,15 @@ class Home extends React.Component {
                 <h2 className="tw-text-4xl">Your Virtual Sous Chef</h2>
                 <div className="tw-mt-10 tw-flex tw-justify-evenly container">
                     <div>
-                        <img src={Tomato} alt="A tomato" className="tw-h-[256px]" />
+                        <img src={Tomato} alt="A tomato" className="tw-h-[256px]"/>
                         <h5 className="tw-text-1xl tw-font-bold tw-mt-4">AI-Powered Food Recognition</h5>
                     </div>
                     <div>
-                        <img src={Recipes} alt="A cooking recipe" className="tw-h-[256px]" />
+                        <img src={Recipes} alt="A cooking recipe" className="tw-h-[256px]" href="account/Dashboard"/>
                         <h5 className="tw-text-1xl tw-font-bold tw-mt-4">Intelligent Recipe Recommender</h5>
                     </div>
                     <div>
-                        <img src={Cookbook} alt="A magical cookbook" className="tw-h-[256px]" />
+                        <img src={Cookbook} alt="A magical cookbook" className="tw-h-[256px]" href="account/Dashboard"/>
                         <h5 className="tw-text-1xl tw-font-bold tw-mt-4">Personalized Cookbook</h5>
                     </div>
                 </div>
