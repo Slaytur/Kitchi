@@ -52,9 +52,6 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                                     <a href="/dashboard" className={`nav-link ${window.location.pathname === `/dashboard` ? `active disabled` : ``}`}>Dashboard</a>
                                 </li>}
                                 <li className="nav-item">
-                                    <a href="/cookbook" className={`nav-link ${window.location.pathname === `/recipes` ? `active disabled` : ``}`}>Recipes</a>
-                                </li>
-                                <li className="nav-item">
                                     <a href="/forums" className={`nav-link ${window.location.pathname === `/forums` ? `active disabled` : ``}`}>Forums</a>
                                 </li>
                             </ul>

@@ -24,7 +24,6 @@ router.post(`/`, (req: Request<Record<string, never>, { success?: string, errors
         typeof password !== `string`
     ) return res.status(400);
 
-
     // Force username to be lowercase.
     req.body.username = req.body.username?.toLowerCase();
 
