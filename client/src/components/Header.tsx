@@ -14,6 +14,8 @@ interface HeaderState {
         displayName?: string
         avatar?: string
     }
+
+    accountDropdownState: boolean
 }
 
 class Header extends React.Component<Record<string, never>, HeaderState> {
@@ -25,7 +27,9 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
         this.state = {
             account: {
                 authenticated: true
-            }
+            },
+
+            accountDropdownState: false
         };
 
         this.nav = React.createRef<HTMLDivElement>();
@@ -44,9 +48,9 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav mb-2 mb-lg-0">
-                                <li className="nav-item">
+                                {this.state.account.authenticated && <li className="nav-item">
                                     <a href="/dashboard" className={`nav-link ${window.location.pathname === `/dashboard` ? `active disabled` : ``}`}>Dashboard</a>
-                                </li>
+                                </li>}
                                 <li className="nav-item">
                                     <a href="/cookbook" className={`nav-link ${window.location.pathname === `/recipes` ? `active disabled` : ``}`}>Recipes</a>
                                 </li>
@@ -63,8 +67,10 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                                 <li className={`nav-item dropdown nav-profile-menu${!this.state.account.authenticated ? ` d-none` : ``}`}>
                                     <a href="#" className="nav-link btn" id="profile-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i className="icofont icofont-user-alt-7 tw-me-2"></i>
-                                        <span>{this.state.account.username}</span>
+                                        <img src={this.state.account.avatar} alt="Your account avatar" className="tw-h-[24px] tw-me-2" />
+                                        <span>{this.state.account.displayName ?? this.state.account.username}</span>
+
+                                        <i className={`icofont icofont-caret-${this.state.accountDropdownState ? `up` : `down`} tw-ms-2`}></i>
                                     </a>
                                     <div className="welcome-string"></div>
                                     <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="profile-dropdown">
@@ -120,6 +126,8 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                     : nav?.classList.remove(`nav-scrolled`);
             };
         }
+
+        $(`#profile-dropdown`).on(`click`, () => this.setState({ accountDropdownState: !this.state.accountDropdownState }));
 
         void axios.get(`${API_URL}/auth/authenticated`, { withCredentials: true }).then(res => {
             this.setState({
