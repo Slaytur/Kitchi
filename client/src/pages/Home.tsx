@@ -61,7 +61,7 @@ class Home extends React.Component {
             </div>
 
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 319"><path fill="#B2D481" fillOpacity="1" d="M0,96L34.3,96C68.6,96,137,96,206,106.7C274.3,117,343,139,411,128C480,117,549,75,617,74.7C685.7,75,754,117,823,160C891.4,203,960,245,1029,256C1097.1,267,1166,245,1234,208C1302.9,171,1371,117,1406,90.7L1440,64L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
-            <div className="tw-flex tw-bg-[#B2D481]">
+            <div className="tw-flex tw-bg-$lightgreen">
                 <hr className="tw-text-white" />
                 <div className="tw-w-100 tw-h-[170px] tw-w-[300px] tw-border-none tw-mx-auto">
                     <div className="card tw-position-absolute">

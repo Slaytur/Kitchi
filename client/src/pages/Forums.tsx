@@ -10,8 +10,8 @@ declare const API_URL: string;
  * The register page.
  */
 class Forum extends React.Component<
-    Record<string, never>,
-    { isLoggedIn: boolean }
+Record<string, never>,
+{ isLoggedIn: boolean }
 > {
     render = (): React.ReactNode => {
         return (
@@ -21,7 +21,7 @@ class Forum extends React.Component<
                     <div className="message-send tw-p-5">
                         <form
                             action={`${API_URL}/forum/post`}
-                            className="tw-bg-[#B2D481] tw-p-4 tw-w-11/12 form-control tw-mx-auto tw-border-[#58991F] tw-border-2"
+                            className="tw-bg-$lightgreen tw-p-4 tw-w-11/12 form-control tw-mx-auto tw-border-[#58991F] tw-border-2"
                         >
                             <div className="tw-mb-3">
                                 <label
@@ -52,7 +52,7 @@ class Forum extends React.Component<
                                 <img
                                     className="tw-float-left tw-pl-5 tw-pt-1"
                                     src={Heart}
-                                    style={{ width: "60px", height: "50px" }}
+                                    style={{ width: `60px`, height: `50px` }}
                                 ></img>
                                 <label
                                     htmlFor="username"
@@ -71,7 +71,7 @@ class Forum extends React.Component<
                                 <img
                                     className="tw-float-left tw-pl-5 tw-pt-1"
                                     src={Heart}
-                                    style={{ width: "60px", height: "50px" }}
+                                    style={{ width: `60px`, height: `50px` }}
                                 ></img>
                                 <label
                                     htmlFor="likes"
@@ -85,7 +85,7 @@ class Forum extends React.Component<
                                 <img
                                     className="tw-float-left tw-pl-5 tw-pt-1"
                                     src={Heart}
-                                    style={{ width: "60px", height: "50px" }}
+                                    style={{ width: `60px`, height: `50px` }}
                                 ></img>
                                 <label
                                     htmlFor="username"
@@ -104,7 +104,7 @@ class Forum extends React.Component<
                                 <img
                                     className="tw-float-left tw-pl-5 tw-pt-1"
                                     src={Heart}
-                                    style={{ width: "60x", height: "50px" }}
+                                    style={{ width: `60x`, height: `50px` }}
                                 ></img>
                                 <label
                                     htmlFor="likes"
