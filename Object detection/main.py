@@ -7,7 +7,7 @@ import urllib.parse
 import json
 
 host = "localhost"
-port = 8080
+port = 9035
 
 class MyHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
