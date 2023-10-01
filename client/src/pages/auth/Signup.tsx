@@ -69,7 +69,7 @@ class Signup extends React.Component {
                 type: `post`,
                 url: `${API_URL}/auth/signup`,
                 data: $(`#signup-form`).serialize()
-            }).then((res: { errors: string, success: boolean }) => {
+            }).then((res: { errors?: string, success?: boolean }) => {
                 if (res.errors !== undefined) {
                     $(`#signup-btn`).removeAttr(`disabled`);
                     $(`#signup-error`).show();
@@ -78,21 +78,40 @@ class Signup extends React.Component {
 
                     $(`#signup-error-message`).text(res.errors);
                     console.error(`[ACCOUNT SERVER]: ${JSON.stringify(res.errors)}`);
-                } else if (res.success) {
+                } else if (res.success !== undefined) {
+                    console.log(`[ACCOUNT SERVER]: ${JSON.stringify(res.success)}`);
+
                     $(`#signup-success`).show();
                     $(`#signup-success-message`).text(res.success);
-
-                    console.log(`[ACCOUNT SERVER]: ${JSON.stringify(res.success)}`);
 
                     void $.ajax({
                         type: `post`,
                         url: `${API_URL}/auth/login`,
                         data: $(`#signup-form`).serialize()
-                    });
+                    }).then((res: { errors?: string, success?: boolean }) => {
+                        if (res.success !== undefined) {
+                            setTimeout(() => {
+                                window.location.href = `${window.location.protocol}//${window.location.host}/dashboard`;
+                            }, 3e3);
+                        } else {
+                            $(`#signup-error-message`).text(`There was an issue logging into your account. You will be redirected to the login page shortly.`);
+                            $(`#signup-error`).show();
+                            $(`#signup-success`).hide();
 
-                    //     // TODO: Change to auto-login.
-                    // window.location.href = `${window.location.protocol}//${window.location.host}/auth/login`;
-                    // }, 1e4);
+                            console.error(`[ACCOUNT SERVER]: LOGIN FAILED`);
+                            setTimeout(() => {
+                                window.location.href = `${window.location.protocol}//${window.location.host}/auth/login`;
+                            }, 5e3);
+                        }
+                    }).catch(() => {
+                        $(`#signup-error-message`).text(`There was an issue logging into your account. You will be redirected to the login page shortly.`);
+                        $(`#signup-error`).show();
+
+                        console.error(`[ACCOUNT SERVER]: LOGIN FAILED`);
+                        setTimeout(() => {
+                            window.location.href = `${window.location.protocol}//${window.location.host}/auth/login`;
+                        }, 5e3);
+                    });
                 }
             }).catch(() => {
                 $(`#signup-btn`).removeAttr(`disabled`);

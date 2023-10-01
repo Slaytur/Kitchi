@@ -28,7 +28,7 @@ router.post(`/`, (req: Request<Record<string, never>, { success?: string, errors
     if (req.isAuthenticated()) return res.redirect(`/dashboard`);
 
     passport.authenticate(`login`, (err: Error, user: UserDoc, info: unknown) => {
-        if (err !== undefined) {
+        if (err != null) {
             log(`red`, String(err));
             return res.json({ errors: err });
         }
@@ -36,7 +36,7 @@ router.post(`/`, (req: Request<Record<string, never>, { success?: string, errors
         if (user == null) return res.json({ errors: `User does not exist.` });
 
         req.logIn(user, err => {
-            if (err !== undefined) {
+            if (err != null) {
                 log(`red`, err);
                 return res.json({ errors: `There was an error processing your request.` });
             }

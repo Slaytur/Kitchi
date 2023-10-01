@@ -69,7 +69,7 @@ router.post(`/`, (req: Request<Record<string, never>, { success?: string, errors
         await user.save();
 
         log(`yellow`, `Created account "${user.username}" with email "${user.email}".`);
-        res.json({ success: `Your account has been registered.` });
+        res.json({ success: `Your account has been registered. Logging you in...` });
     })(req, res, next);
 });
 
