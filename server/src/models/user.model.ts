@@ -12,8 +12,11 @@ interface UserDoc extends Mongoose.Document {
     cookbook: string[]
 
     username: string
+    displayName: string
+
     email: string
     password: string
+    avatar: string
 
     creationIP: string
     lastIP: string
@@ -37,9 +40,12 @@ const UserSchema = new Mongoose.Schema({
     pantry: { type: Array, required: false, default: [] },
     cookbook: { type: Array, required: false, default: [] },
 
-    username: { type: String, required: true, maxlength: 32 },
+    username: { type: String, required: true, unique: true, maxlength: 32 },
+    displayName: { type: String, required: true, unique: true, maxlength: 32 },
+
     email: { type: String, required: false, unique: true },
     password: { type: String, required: true },
+    avatar: { type: String, required: false, default: `https://slaytur.warzon.io/assets/img/misc/burger_pfp.png` },
 
     creationIP: { type: String, required: false },
     lastIP: { type: String, required: false },
