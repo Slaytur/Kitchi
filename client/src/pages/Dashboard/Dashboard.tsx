@@ -21,16 +21,39 @@ import "../../assets/scss/pages/dashboard.scss";
 
 class Dashboard extends React.Component {
     render = (): React.ReactNode => (
-        <main className="tw-text-center tw-flex tw-w-screen tw-h-screen">
-            <div className=' tw-flex tw-pl-3 tw-h-full tw-bg-[#B2D481]'>
-                <div className=' tw-items-center tw-pt-24 '>
-                    <p className='tw-bg-[#f9f2de] tw-pr-3 leftrounded tw-p-1'>Pantry</p>
-                    <p className='tw-bg-[#f9f2de] tw-pr-3 leftrounded tw-p-1 tw-pl-2'>Cook Book</p>
-                    <p className='tw-bg-[#f9f2de] tw-pr-3 leftrounded tw-p-1'>Recipes</p>
+        <main className="tw-text-center tw-flex tw-w-screen tw-h-fit">
+            <div className=' tw-flex tw-pl-3 tw-h-full tw-w-min tw-left-0 tw-bg-[#f9f2de]'>
+                <div className=' tw-items-center tw-pt-24 tw-w-full tw-text-lg '>
+                    <p className='tw-bg-white tw-pr-3 tw-pl-2 leftrounded tw-py-1 tw-w-full'>Pantry</p>
+                    <p className='tw-bg-white tw-pr-3 tw-pl-2 leftrounded tw-py-1 tw-whitespace-nowrap'>Cook Book</p>
+                    <p className='tw-bg-white tw-pr-3 tw-pl-2 leftrounded tw-py-1'>Recipes</p>
                 </div>
             </div>
-            <div className="mt-5 tw-flex tw-h-screen tw-w-full text-center">
-                <h1 className='tw-w-full '>Your Pantry</h1>
+            <div className="tw-mx-auto tw-h-full tw-w-full tw-bg-white text-center">
+                <h1 className='tw-w-full tw-mt-10 '>Your Recipies</h1>
+                <div className='tw-grid tw-gap-4 tw-grid-cols-3 tw-p-8'>
+                    <div className='card tw-p-3'>
+                        <h1>Recipie Card</h1>
+                        <p className=' tw-mb-60'> Description </p>
+                    </div>
+
+
+                    <div className='card tw-p-3'>
+                        <h1>Recipie Card</h1>
+                        <p className=' tw-mb-60'> Description </p>
+                    </div>
+                    <div className='card tw-p-3'>
+                        <h1>Recipie Card</h1>
+                        <p className=' tw-mb-60'> Description </p>
+                    </div>
+                    <div className='card tw-p-3'>
+                        <h1>Recipie Card</h1>
+                        <p className=' tw-mb-60'> Description </p>
+                    </div>
+
+
+
+                </div>
             </div>
         </main>
     );
