@@ -12,11 +12,13 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Error404 from './pages/404';
 
+
 import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 
 import Dashboard from './pages/account/Dashboard';
 import Settings from './pages/account/Settings';
+
 
 import Forums from './pages/social/Forums';
 
@@ -26,6 +28,7 @@ import './assets/scss/index.scss';
 import 'bootstrap';
 import Recipe from './pages/Recipe';
 import Faq from './pages/Faq';
+import Timer from './pages/Timer';
 
 class App extends React.Component {
     render = (): React.ReactNode => (
@@ -36,6 +39,7 @@ class App extends React.Component {
                     <Route path="/" element={<Home />} />
                     <Route path="/recipe/*" element={<Recipe />} />
                     <Route path="/faq" element={<Faq/>}></Route>
+                    <Route path="/timer" element={<Timer/>}></Route>
 
                     {/* Authentication */}
                     <Route path="/auth">
@@ -49,7 +53,6 @@ class App extends React.Component {
 
                     {/* Social */}
                     <Route path="/forums" element={<Forums />} />
-
 
                     {/* 404 Handler */}
                     <Route path="/*" element={<Error404 />} />
