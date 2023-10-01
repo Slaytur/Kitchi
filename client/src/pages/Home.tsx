@@ -64,7 +64,7 @@ class Home extends React.Component {
                 <div className="tw-w-100 tw-h-[170px] tw-w-[300px] tw-border-none tw-mx-auto">
                     <div className="card tw-position-absolute">
                         <div className="card-body tw-pb-2">
-                            <h5 className="card-title tw-text-2xl tw-font-bold">170K+</h5>
+                            <h5 className="card-title tw-text-2xl tw-font-bold">230K+</h5>
                             <p>different recipes</p>
                         </div>
                     </div>

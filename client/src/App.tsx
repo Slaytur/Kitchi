@@ -11,12 +11,14 @@ import Footer from './components/Footer';
 
 import Home from './pages/Home';
 import Error404 from './pages/404';
+import Timer from './pages/Timer';
 
 import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 
 import Dashboard from './pages/account/Dashboard';
 import Settings from './pages/account/Settings';
+
 
 import Forums from './pages/social/Forums';
 
@@ -36,6 +38,7 @@ class App extends React.Component {
                     <Route path="/" element={<Home />} />
                     <Route path="/recipe/*" element={<Recipe />} />
                     <Route path="/faq" element={<Faq/>}></Route>
+                    <Route path="/timer" element={<Timer/>}></Route>
 
                     {/* Authentication */}
                     <Route path="/auth">
