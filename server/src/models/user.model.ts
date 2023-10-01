@@ -22,6 +22,12 @@ interface UserDoc extends Mongoose.Document {
     lastIP: string
 
     token: string
+
+    settings: {
+        skillLevel: number
+        restrictions: Record<string, boolean>
+        interests: Record<string, boolean>
+    }
 }
 
 enum UserRank {
@@ -50,7 +56,13 @@ const UserSchema = new Mongoose.Schema({
     creationIP: { type: String, required: false },
     lastIP: { type: String, required: false },
 
-    token: { type: String, required: true, unique: true }
+    token: { type: String, required: true, unique: true },
+
+    settings: {
+        skillLevel: { type: Number, required: false, default: 0 },
+        restrictions: { type: Object, required: false, default: {} },
+        interests: { type: Object, required: false, default: {} }
+    }
 });
 
 const User = Mongoose.model<UserDoc>(`User`, UserSchema);
