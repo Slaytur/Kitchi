@@ -53,22 +53,23 @@ passport.use(`signup`, new passportLocal.Strategy({
             settings: {
                 skillLevel: 0,
                 interests: {
-                    [`0`]: true,
-                    [`1`]: true,
-                    [`2`]: true,
-                    [`3`]: true,
-                    [`4`]: true,
-                    [`5`]: true,
-                    [`6`]: true
+                    [`0`]: false,
+                    [`1`]: false,
+                    [`2`]: false,
+                    [`3`]: false,
+                    [`4`]: false,
+                    [`5`]: false,
+                    [`6`]: false
                 },
                 restrictions: {
-                    [`0`]: true,
-                    [`1`]: true,
-                    [`2`]: true,
-                    [`3`]: true,
-                    [`4`]: true,
-                    [`5`]: true,
-                    [`6`]: true
+                    [`0`]: false,
+                    [`1`]: false,
+                    [`2`]: false,
+                    [`3`]: false,
+                    [`4`]: false,
+                    [`5`]: false,
+                    [`6`]: false,
+                    [`7`]: false
                 }
             },
 
