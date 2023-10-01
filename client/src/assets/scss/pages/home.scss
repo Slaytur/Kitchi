@@ -15,6 +15,28 @@
         & > div {
             padding-bottom: 2rem;
         }
+
+        h1 {
+            animation: fastFadeIn 1s;
+        }
+
+        p {
+            animation: fadeIn 1.5s;
+        }
+
+        a:nth-child(1) {
+            animation: fadeIn 2s;
+        }
+
+        a:nth-child(2) {
+            animation: fadeIn 2.5s;
+        }
+
+        animation: fastFadeIn 1s;
+
+        & + svg {
+            animation: fastFadeIn 1s;
+        }
     }
 
     .btn-sign-in {
@@ -62,6 +84,13 @@
             & > div {
                 flex-direction: row;
                 margin-bottom: 20px;
+            }
+        }
+
+        .splash img {
+            transition: 0.3s;
+            &:hover {
+                transform: scale(125%);
             }
         }
     }
