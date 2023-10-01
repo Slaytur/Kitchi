@@ -68,8 +68,8 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                                 <li className={`nav-item dropdown nav-profile-menu${!this.state.account.authenticated ? ` d-none` : ``}`}>
                                     <a href="#" className="nav-link btn" id="profile-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src={this.state.account.avatar} alt="Your account avatar" className="tw-h-[24px] tw-me-2" />
-                                        <span>{this.state.account.displayName ?? this.state.account.username}</span>
 
+                                        <span>{this.state.account.displayName ?? this.state.account.username}</span>
                                         <i className={`icofont icofont-caret-${this.state.accountDropdownState ? `up` : `down`} tw-ms-2`}></i>
                                     </a>
                                     <div className="welcome-string"></div>
