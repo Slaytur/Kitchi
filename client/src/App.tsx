@@ -25,6 +25,7 @@ import './assets/scss/index.scss';
 
 import 'bootstrap';
 import Recipe from './pages/Recipe';
+import Faq from './pages/Faq';
 
 class App extends React.Component {
     render = (): React.ReactNode => (
@@ -33,6 +34,8 @@ class App extends React.Component {
             <Router>
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/recipe/*" element={<Recipe />} />
+                    <Route path="/faq" element={<Faq/>}></Route>
 
                     {/* Authentication */}
                     <Route path="/auth">
@@ -47,7 +50,6 @@ class App extends React.Component {
                     {/* Social */}
                     <Route path="/forums" element={<Forums />} />
 
-                    <Route path="/recipe/*" element={<Recipe />} />
 
                     {/* 404 Handler */}
                     <Route path="/*" element={<Error404 />} />

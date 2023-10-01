@@ -16,7 +16,9 @@ module.exports = {
             lightgreen: `#b2d481`,
             buff: `#c8a28d`,
             sand: `#eacbaa`,
-            offwhite: `#f9f2de`
+            offwhite: `#f9f2de`,
+            white: `#FFFFFF`,
+            black: `#000000`
         } // )
     },
     plugins: []
