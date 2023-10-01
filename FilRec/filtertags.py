@@ -37,5 +37,5 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.end_headers()
         print(json.dumps(giveRecipe(self.headers['userid'])))
-httpd = HTTPServer(('', 8000), SimpleHTTPRequestHandler)
+httpd = HTTPServer(('', 9036), SimpleHTTPRequestHandler)
 httpd.serve_forever()

@@ -42,6 +42,6 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         pref.append(self.headers['userid'])
         pref.append(self.headers['query'])
         print(json.dumps(giveRecipe(pref)))
-httpd = HTTPServer(('', 8000), SimpleHTTPRequestHandler)
+httpd = HTTPServer(('', 9036), SimpleHTTPRequestHandler)
 httpd.serve_forever()
 
