@@ -24,6 +24,10 @@ router.post(`/`, (req: Request<Record<string, never>, { success?: string, errors
         typeof password !== `string`
     ) return res.status(400);
 
+
+    // Force username to be lowercase.
+    req.body.username = req.body.username?.toLowerCase();
+
     // If the user is already logged in, then redirect them to the dashboard.
     if (req.isAuthenticated()) return res.redirect(`/dashboard`);
 
