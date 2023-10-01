@@ -91,6 +91,10 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                                     </ul>
                                 </li>
                             </ul>
+                            <form className={this.state.account.authenticated ? `d-none` : ``}>
+                                <a href="/auth/login" className="btn btn-darken btn-green me-1">Login</a>
+                                <a href="/auth/signup" className="btn btn-darken btn-green ms-1">Sign Up</a>
+                            </form>
                         </div>
                     </div>
                 </nav>
