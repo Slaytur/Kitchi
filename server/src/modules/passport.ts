@@ -47,7 +47,9 @@ passport.use(`signup`, new passportLocal.Strategy({
             created: new Date(),
             id: createID(),
 
-            username,
+            username: username.toLowerCase(),
+            displayName: username,
+
             token: `n${crypto.randomBytes(32).toString(`hex`)}`
         });
 
