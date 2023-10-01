@@ -3,7 +3,8 @@ import tensorflow as tf
 from PIL import Image
 import io
 import numpy as np
-
+import urllib.parse
+import json
 
 host = "localhost"
 port = 8080
@@ -39,36 +40,33 @@ class MyHandler(SimpleHTTPRequestHandler):
 
         return []
         
-    
-    
-    
-    # def do_GET(self):
-    #     if self.path == "/letters":
-    #         image_processing_result = self.process_images()
+def do_POST(self):
+    if self.path == "/objectdetect":
+        content_length = int(self.headers['Content-Length'])
+        image_data = self.rfile.read(content_length)
 
-    #         self.send_response(200)
-    #         self.send_header("Content-type", "text/plain")
-    #         self.end_headers()
-    #         self.wfile.write(str(image_processing_result).encode("utf-8"))
-    #     else:
-    #         self.send_response(404)
-    #         self.end_headers()
-    #         self.wfile.write(b"404 Not Found")
+        # Parse the query parameters to get the 'userid' value
+        query_params = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
+        userid = query_params.get('userid', [''])[0]
 
-    def do_POST(self):
-        if self.path == "/objectdetect":
-            content_length = int(self.headers['Content-Length'])
-            image_data = self.rfile.read(content_length)
-            returned_data = self.process_images(image_data)
-            
-            self.send_response(200)
-            self.send_header("Content-type", "text/plain")
-            self.end_headers()
-            self.wfile.write(",".join(returned_data).encode("utf-8"))
-        else:
-            self.send_response(404)
-            self.end_headers()
-            self.wfile.write(b"404 Not Found")
+        returned_data = self.process_images(image_data)
+
+        self.send_response(200)
+        self.send_header("Content-type", "text/plain")
+
+        # Include 'userid' in the response
+        response_data = {
+            "userid": userid,
+            "result": ",".join(returned_data)
+        }
+
+        self.end_headers()
+        self.wfile.write(json.dumps(response_data).encode("utf-8"))
+    else:
+        self.send_response(404)
+        self.end_headers()
+        self.wfile.write(b"404 Not Found")
+
 
             
 
