@@ -26,7 +26,7 @@ class Settings extends React.Component {
                         </div>
                         <div className="card card-body text-dark my-4">
                             <h3 className="text-center my-3">Skill Level</h3>
-                            <form action={`${API_URL}/settings/skilllevel`} method="POST">
+                            <form action={`${API_URL}/settings/skilllevel`} method="POST" id="skill-level-form">
                                 <label htmlFor="skill-level">Level (Beginner to Experienced):</label>
                                 <br />
                                 <input type="range" name="skill-level" id="skill-level" className="form-range" min={0} max={2} />
@@ -35,7 +35,7 @@ class Settings extends React.Component {
                         </div>
                         <div className="card card-body text-dark my-4">
                             <h3 className="text-center my-3">Food Interests</h3>
-                            <form action={`${API_URL}/settings/foodinterests`} method="POST">
+                            <form action={`${API_URL}/settings/foodinterests`} method="POST" id="food-interests-form">
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value={0} id="interest-american" />
                                     <label className="form-check-label" htmlFor="interest-american">American</label>
@@ -71,7 +71,7 @@ class Settings extends React.Component {
                     <div className="col-sm-6">
                     <div className="card card-body text-dark my-4">
                             <h3 className="text-center my-3">Dietary Restrictions</h3>
-                            <form action={`${API_URL}/settings/dietaryrestrictions`} method="POST">
+                            <form action={`${API_URL}/settings/dietaryrestrictions`} method="POST" id="dietary-restrictions-form">
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value={0} id="diet-glutenfree" />
                                     <label className="form-check-label" htmlFor="diet-kosher">Gluten Free</label>
@@ -116,7 +116,7 @@ class Settings extends React.Component {
                                 <div className="form-group">
                                     <label htmlFor="profile-picture" className="form-label">Profile Avatar URL</label>
                                     <input type="text" id="display-avatar" name="display-avatar" className="form-control" placeholder="Avatar Image URL" maxLength={1000} />
-                                    <span className="form-text text-dark">(Example: <a href="/assets/img/misc/burger_pfp.png">https://slaytur.warzon.io/assets/img/misc/burger_pfp.png</a>)</span>
+                                    <span className="form-text text-dark">(Example: <a href="/assets/img/misc/burger_pfp.png" target="_blank" rel="noreferrer">https://slaytur.warzon.io/assets/img/misc/burger_pfp.png</a>)</span>
                                 </div>
                                 <input type="submit" name="account-avatar-form" id="account-update-pfp" value="Update Profile Picture" className="btn btn-darken btn-green btn-block mt-3" />
                             </form>
@@ -134,8 +134,30 @@ class Settings extends React.Component {
 
     componentDidMount = (): void => {
         void axios.get(`${API_URL}/auth/authenticated`, { withCredentials: true }).then(res => {
-            if (typeof res.data?.avatar === `string`) $(`#user-avatar-preview`).attr(`src`, res.data.avatar);
+            if (res.data?.authenticated !== true) window.location.href = `${window.location.protocol}//${window.location.host}/auth/login`;
+            if (typeof res.data?.avatar === `string`) {
+                $(`#user-avatar-preview`).attr(`src`, res.data.avatar);
+                $(`#display-avatar`).val(res.data.avatar);
+            }
+
+            if (typeof res.data?.displayName === `string`) {
+                $(`#display-name`).val(res.data.displayName);
+                $(`#display-name`).attr(`placeholder`, res.data.username);
+            }
         }).catch(() => console.error(`[ACCOUNT SERVER]: Could not determine login status.`));
+
+        void axios.get(`${API_URL}/auth/settings/get`, { withCredentials: true }).then(res => {
+            if (res.data?.authenticated !== true) return;
+
+            $(`#skill-level`).val(res.data.skillLevel);
+
+            const interestNodes: NodeList = document.querySelectorAll(`#food-interests-form input[type=checkbox]`)
+            const restrictionNodes = document.querySelectorAll(`#dietary-restrictions-form input[type=checkbox]`)
+
+            res.data.interests.forEach((x: boolean, i: number) => { (interestNodes[i] as HTMLInputElement).value = String(x); });
+            res.data.restrictions.forEach((x: boolean, i: number) => { (restrictionNodes[i] as HTMLInputElement).value = String(x); });
+
+        }).catch(() => console.error(`[ACCOUNT SERVER]: Could not get account settings.`));
     };
 }
 
