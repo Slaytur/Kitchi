@@ -49,7 +49,7 @@ class Dashboard extends React.Component<Record<never, never>, { recommendedCards
                         ))}
                     </div>
 
-                    <div className="tw-h-[2px] tw-w-1/2 tw-mx-auto -tw-mt-2 tw-mb-3 tw-opacity-30 tw-bg-offblack"></div>
+                    <div className="tw-h-[2px] tw-w-1/2 tw-mx-auto tw-mt-2 tw-mb-3 tw-opacity-30 tw-bg-offblack"></div>
 
                     {/* Cookbook */}
                     <h1 className="tw-w-full tw-font-bold tw-mt-10 tw-pl-1 tw-text-[40px]">Cookbook</h1>
