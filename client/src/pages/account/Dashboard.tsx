@@ -102,7 +102,7 @@ class Dashboard extends React.Component<Record<never, never>, { recommendedCards
                 )
             );
 
-        void axios.get(`${API_URL}/accounts/dashboarddata`, { withCredentials: true }).then(res => {
+        void axios.get(`${API_URL}/account/dashboarddata`, { withCredentials: true }).then(res => {
             this.setState({
                 recommendedCards: res.data.recommendedCards ?? [],
                 cookbook: res.data.cookbook ?? [],

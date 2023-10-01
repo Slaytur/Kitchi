@@ -111,20 +111,7 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a
-                                        href="/recipe"
-                                        className={`nav-link ${
-                                            window.location.pathname ===
-                                            `/recipe`
-                                                ? `active disabled`
-                                                : ``
-                                        }`}
-                                    >
-                                        Recipes
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a href="/recipes" className={`nav-link ${window.location.pathname === `/recipes` ? `active disabled` : ``}`}>Recipes</a>
+                                    <a href="/recipe" className={`nav-link ${window.location.pathname === `/recipe` ? `active disabled` : ``}`}>Recipes</a>
                                 </li>
                             </ul>
                             <form
