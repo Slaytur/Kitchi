@@ -94,7 +94,7 @@ class Signup extends React.Component {
                     }).then((res: { errors?: string, success?: boolean }) => {
                         if (res.success !== undefined) {
                             setTimeout(() => {
-                                window.location.href = `${window.location.protocol}//${window.location.host}/dashboard`;
+                                window.location.href = `${window.location.protocol}//${window.location.host}/settings`;
                             }, 3e3);
                         } else {
                             $(`#signup-error-message`).text(`There was an issue logging into your account. You will be redirected to the login page shortly.`);
