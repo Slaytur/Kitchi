@@ -1,6 +1,6 @@
 import React from 'react';
 import '../assets/scss/pages/register.scss';
-declare const API_URL: string;
+// declare const API_URL: string;
 
 class Register extends React.Component<Record<string, never>, { isLoggedIn: boolean }> {
     render = (): React.ReactNode => {
