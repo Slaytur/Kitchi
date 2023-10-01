@@ -24,6 +24,7 @@ import './assets/css/icofont/icofont.min.css';
 import './assets/scss/index.scss';
 
 import 'bootstrap';
+import Recipe from './pages/Recipe';
 
 class App extends React.Component {
     render = (): React.ReactNode => (
@@ -45,6 +46,8 @@ class App extends React.Component {
 
                     {/* Social */}
                     <Route path="/forums" element={<Forums />} />
+
+                    <Route path="/recipe/*" element={<Recipe />} />
 
                     {/* 404 Handler */}
                     <Route path="/*" element={<Error404 />} />

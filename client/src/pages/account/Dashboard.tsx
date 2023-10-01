@@ -3,7 +3,7 @@ import React from 'react';
 import axios from 'axios';
 
 import "../../assets/scss/pages/dashboard.scss";
-import { PassThrough } from 'stream';
+// import { PassThrough } from 'stream';
 
 declare const API_URL: string;
 
@@ -147,7 +147,7 @@ class Dashboard extends React.Component {
         void axios.get(`${API_URL}/dashboarddata`, { withCredentials: true }).then(res => {
             if (res.data?.authenticated !== true) return;
             return 5;
-        }).catch(() => console.error(`[ACCOUNT SERVER]: Could not get account settings.`));
+        }).catch(() => console.error(`[ACCOUNT SERVER]: Could not get account data.`));
     };
 }
 
