@@ -15,7 +15,7 @@ class Settings extends React.Component {
                     <div className="col-sm-6">
                         <div className="card card-body text-dark my-4">
                             <h2 className="text-center my-3">Display Name</h2>
-                            <form action={`${API_URL}/settings/display-name`} method="POST" id="account-options-form">
+                            <form action={`${API_URL}/settings/displayname`} method="POST" id="account-options-form">
                                 <div className="form-group">
                                     <label htmlFor="display-name" className="form-label">Display Name</label>
                                     <input type="text" id="display-name" name="display-name" className="form-control" placeholder="Change display name" maxLength={20} />
@@ -26,7 +26,7 @@ class Settings extends React.Component {
                         </div>
                         <div className="card card-body text-dark my-4">
                             <h3 className="text-center my-3">Skill Level</h3>
-                            <form action={`${API_URL}/settings/skill-level`} method="POST">
+                            <form action={`${API_URL}/settings/skilllevel`} method="POST">
                                 <label htmlFor="skill-level">Level (Beginner to Experienced):</label>
                                 <br />
                                 <input type="range" name="skill-level" id="skill-level" className="form-range" min={0} max={2} />
@@ -35,7 +35,7 @@ class Settings extends React.Component {
                         </div>
                         <div className="card card-body text-dark my-4">
                             <h3 className="text-center my-3">Food Interests</h3>
-                            <form action={`${API_URL}/settings/food-interests`} method="POST">
+                            <form action={`${API_URL}/settings/foodinterests`} method="POST">
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value={0} id="interest-american" />
                                     <label className="form-check-label" htmlFor="interest-american">American</label>
@@ -71,7 +71,7 @@ class Settings extends React.Component {
                     <div className="col-sm-6">
                     <div className="card card-body text-dark my-4">
                             <h3 className="text-center my-3">Dietary Restrictions</h3>
-                            <form action={`${API_URL}/settings/dietary-restrictions`} method="POST">
+                            <form action={`${API_URL}/settings/dietaryrestrictions`} method="POST">
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value={0} id="diet-glutenfree" />
                                     <label className="form-check-label" htmlFor="diet-kosher">Gluten Free</label>
@@ -112,7 +112,7 @@ class Settings extends React.Component {
                             <div className="avatar-preview mx-auto my-4">
                                 <img src="/assets/img/misc/burger_pfp.png" alt="Default burger avatar" className="avatar-preview profile-picture rounded tw-h-[256px]" id="user-avatar-preview" />
                             </div>
-                            <form action={`${API_URL}/settings/update-avatar`} method="POST" id="account-avatar-form">
+                            <form action={`${API_URL}/settings/updateavatar`} method="POST" id="account-avatar-form">
                                 <div className="form-group">
                                     <label htmlFor="profile-picture" className="form-label">Profile Avatar URL</label>
                                     <input type="text" id="display-avatar" name="display-avatar" className="form-control" placeholder="Avatar Image URL" maxLength={1000} />

@@ -6,7 +6,8 @@ import { faPaperPlane, faPlus } from "@fortawesome/free-solid-svg-icons";
 import Heart from "../../assets/img/icons/heart.png";
 import Like from "../../assets/img/icons/cookin.png";
 
-// import "client/src/assets/scss/pages/forums.scss";
+import "../../assets/scss/pages/forums.scss";
+
 declare const API_URL: string;
 /**
  * The register page.

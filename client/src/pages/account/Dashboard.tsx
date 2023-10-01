@@ -1,21 +1,10 @@
 import React from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// import { faDownload, faDesktop } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 import "../../assets/scss/pages/dashboard.scss";
 
-// interface UserData {
-//     authenticated: boolean
-
-//     discordID: string
-//     username: string
-//     email: string
-
-//     permissions: {
-//         admin: boolean
-//     }
-// }
+declare const API_URL: string;
 
 class Dashboard extends React.Component {
     render = (): React.ReactNode => (
@@ -53,17 +42,11 @@ class Dashboard extends React.Component {
         </main>
     );
 
-    // componentDidMount = async (): Promise<void> => {
-    //     const userData = await fetch(`https://i.alru.xyz/auth/authenticated`)
-    //         .catch(err => {
-    //             console.error(err);
-    //             if (window.location.hostname !== `localhost`) window.location.href = `/`;
-    //         });
-
-    //     // {"discordID":"386940319666667521","username":"DamienVesper","email":"ldamienvesper@gmail.com","avatar":"2c18b54f11167920ada3a6ebd538f910","permissions":{"admin":false}}
-
-    //     if (!((userData as unknown) as UserData).authenticated && window.location.hostname !== `localhost`) window.location.href = `/`;
-    // };
+    componentDidMount = async (): Promise<void> => {
+        void axios.get(`${API_URL}/auth/authenticated`, { withCredentials: true }).then(res => {
+            if (res.data?.authenticated !== true) window.location.href = `${window.location.protocol}//${window.location.host}/auth/login`;
+        }).catch(() => console.error(`[ACCOUNT SERVER]: Could not determine login status.`));
+    };
 }
 
 export default Dashboard;
