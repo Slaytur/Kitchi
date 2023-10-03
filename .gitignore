@@ -7,11 +7,13 @@ node_modules/
 # Environment variables
 .env
 
+# Datasets
+dataset/
+
+# Weighted variables
 variables.data-00000-of-00001
 
 # IDE garbage
 .idea
 .DS_Store
 .vscode
-
-RAW_recipes.csv
