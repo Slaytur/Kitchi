@@ -1,6 +1,5 @@
 <div align="center">
     <img src="./client/src/assets/img/logos/kitchi.png" alt="Kitchi logo">
-    <h1>Kitchi</h1>
     <hr />
 </div>
 
