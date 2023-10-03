@@ -21,6 +21,7 @@ interface CookbookEntry {
 }
 
 class Dashboard extends React.Component<Record<never, never>, { recommendedCards: RecommendedCard[], cookbook: CookbookEntry[], ingredients: string[] }> {
+    private fileInputRef: any;
     constructor (props: Record<never, never>) {
         super(props);
 
@@ -29,6 +30,8 @@ class Dashboard extends React.Component<Record<never, never>, { recommendedCards
             cookbook: [],
             ingredients: []
         };
+
+        this.fileInputRef = React.createRef();
     }
 
     render = (): React.ReactNode => (
@@ -79,11 +82,11 @@ class Dashboard extends React.Component<Record<never, never>, { recommendedCards
                                     Add
                                 </button>
                                 <div className="tw-w-full tw-h-fit"></div>
-                                <form id="file-upload-form" onClick={(e => e.preventDefault())}>
+                                <form id="file-upload-form">
                                     <button className="tw-p-1 tw-rounded-xl tw-bg-offwhite" id="image-upload">
                                         Upload Image
                                     </button>
-                                    <input type="file" name="image-uploader" id="image-uploader" className="d-none" />
+                                    <input type="file" name="image-uploader" id="image-uploader" className="d-none" ref={this.fileInputRef} onChange={(e => e.preventDefault())}/>
                                 </form>
                             </div>
                         </div>
@@ -108,7 +111,8 @@ class Dashboard extends React.Component<Record<never, never>, { recommendedCards
         });
 
         $(`#image-upload`).on(`click`, () => {
-            $(`#image-uploader`).click();
+            // $(`#image-uploader`).click();
+            this.fileInputRef.current?.click();
         });
 
         void axios
