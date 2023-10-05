@@ -63,7 +63,7 @@
     "formidable": "^3.5.1",
     "hcaptcha": "^0.1.1",
     "helmet": "^6.2.0",
-    "mongoose": "^7.5.3",
+    "mongoose": "^7.5.4",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "xss-filters": "^1.2.7"
